@@ -5,7 +5,8 @@ function get_index_by_player_id (_steamID)
 	{
 		if playerList[_i].steamID == _steamID then return _i;
 	}
-	return noone;
+	show_debug_message("Player not found in player list...");
+	return -1;
 }
 
 /// @self obj_device_handler
