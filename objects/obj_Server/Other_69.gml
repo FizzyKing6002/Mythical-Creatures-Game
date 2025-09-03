@@ -7,12 +7,7 @@ switch async_load[?"event_type"]
 		if async_load[?"change_flags"] & steam_lobby_member_change_entered
 		{
 			show_debug_message("Player Joined: " + _fromName)
-			array_push(playerList,
-			{
-				steamID : _fromID,
-				steamName : _fromName,
-				ready : false,
-			});
+			array_push(playerList, get_player_var());
 		}
 	break;
 }
