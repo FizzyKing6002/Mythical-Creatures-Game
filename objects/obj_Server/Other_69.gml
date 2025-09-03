@@ -23,6 +23,18 @@ switch async_load[?"event_type"]
 			array_push(playerList, _playerVar);
 			
 			send_player_sync_accept();
+			break;
+		}
+		
+		if async_load[?"change_flags"] & steam_lobby_member_change_left
+		{
+			show_debug_message("Player left: " + _fromName);
+			
+			var _playerIndex = get_index_by_player_id(_fromID);
+			array_delete(playerList, _playerIndex, 1);
+			
+			send_player_sync_accept();
+			break;
 		}
 	break;
 }
