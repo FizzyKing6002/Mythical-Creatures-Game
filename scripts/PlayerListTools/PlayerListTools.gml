@@ -27,10 +27,10 @@ function get_all_players_ready ()
 }
 
 /// @self obj_device_handler
-function make_player_ready (_steamID)
+function make_player_ready (_steamID, _readyState = true)
 {
 	var _index = get_index_by_player_id(_steamID);
 	
-	if _index == noone then { show_debug_message("Ready player not found."); return; }
-	playerList[_index].ready = true;
+	if _index == noone then { show_debug_message("Target to change ready state not found..."); return; }
+	playerList[_index].ready = _readyState;
 }

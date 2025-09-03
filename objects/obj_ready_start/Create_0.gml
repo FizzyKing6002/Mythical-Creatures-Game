@@ -32,5 +32,11 @@ function select_action ()
 function self_get_all_players_ready ()
 {
 	if localHost != LocalHost.Server then { show_debug_message("Client has no need to call this function..."); return false; }
-	with global.server { return get_all_players_ready() }
+	with global.server { return get_all_players_ready(); }
+}
+
+function self_get_player_ready ()
+{
+	if localHost != LocalHost.Client then { show_debug_message("Server has no need to call this function..."); return true; }
+	with global.client { return get_player_ready(steamID); }
 }

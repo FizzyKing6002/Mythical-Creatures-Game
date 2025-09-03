@@ -8,7 +8,7 @@ if localHost == LocalHost.Server and not self_get_all_players_ready()
 	image_index = 3;
 	exit;
 }
-if localHost == LocalHost.Client and global.client.playerList[global.client.lobbyIndex].ready
+if localHost == LocalHost.Client and self_get_player_ready()
 {
 	image_index = 3;
 	exit;
