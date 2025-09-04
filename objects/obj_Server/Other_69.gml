@@ -19,6 +19,7 @@ switch async_load[?"event_type"]
 			var _playerVar = get_player_var();
 			_playerVar.steamID = _fromID;
 			_playerVar.steamName = _fromName;
+			if array_length(playerList) >= 2 then _playerVar.spectating = true;
 			
 			array_push(playerList, _playerVar);
 			

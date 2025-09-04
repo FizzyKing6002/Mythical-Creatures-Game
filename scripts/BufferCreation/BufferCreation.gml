@@ -20,6 +20,7 @@ function buffer_create_player_sync_accept ()
 		
 		buffer_write(_b, buffer_u64, _player.steamID);
 		buffer_write(_b, buffer_u8, _player.ready);
+		buffer_write(_b, buffer_u8, _player.spectating);
 		
 		for (var _creatureIndex = 0; _creatureIndex < 4; _creatureIndex++)
 		{
@@ -34,8 +35,8 @@ function buffer_create_player_sync_accept ()
 			}
 			
 			buffer_write(_b, buffer_u8, _creature.identifier);
-			buffer_write(_b, buffer_u16, _creature.x);
-			buffer_write(_b, buffer_u16, _creature.y);
+			buffer_write(_b, buffer_u16, _creature.xPos);
+			buffer_write(_b, buffer_u16, _creature.yPos);
 			buffer_write(_b, buffer_u32, _creature.moveTime);
 			buffer_write(_b, buffer_u8, _creature.passiveAbility1);
 			buffer_write(_b, buffer_u8, _creature.passiveAbility2);
@@ -104,7 +105,7 @@ function buffer_create_game_start ()
 {
 	var _b = buffer_create(1, buffer_fixed, 1);
 	
-	buffer_write(_b, buffer_u8, PacketType.GameStart);
+	buffer_write(_b, buffer_u8, PacketType.GameStartEvent);
 	
 	return _b;
 }

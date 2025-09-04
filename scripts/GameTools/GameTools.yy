@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"PlayerSync",
+  "%Name":"GameTools",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"PlayerSync",
+  "name":"GameTools",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

@@ -4,7 +4,7 @@ enum PacketType // max length 256
 	PlayerSyncAccept,
 	PlayerReadyRequest,
 	PlayerReadyAccept,
-	GameStart,
+	GameStartEvent,
 }
 
 enum LocalHost

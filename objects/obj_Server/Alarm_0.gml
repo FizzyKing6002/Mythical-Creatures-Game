@@ -1,3 +1,3 @@
-sync_players(playerList);
+send_player_sync_accept();
 
-alarm[0] = 5;
+alarm[0] = 500;

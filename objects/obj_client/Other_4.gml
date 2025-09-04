@@ -1,3 +1,3 @@
 if room != rm_game then exit;
 
-// create players
+handle_game_start();

@@ -1,4 +1,4 @@
-/// @desc Returns player dictionary of buffer length 245
+/// @desc Returns player dictionary of buffer length 246
 function get_player_var ()
 {
 	var _playerVar =
@@ -6,6 +6,7 @@ function get_player_var ()
 		steamID : 0, // 8
 		steamName : "Player",
 		ready : false, // 1
+		spectating : false, // 1
 		creature1 : get_creature_var(),
 		creature2 : get_creature_var(),
 		creature3 : get_creature_var(),
@@ -20,8 +21,10 @@ function get_creature_var ()
 	var _creatureVar =
 	{
 		identifier : Creature.None, // 1
-		x : 0, // 2
-		y : 0, // 2
+		modelInst : undefined,
+		iconInst : undefined,
+		xPos : 0, // 2
+		yPos : 0, // 2
 		moveTime : 0, // 4
 		passiveAbility1 : PassiveAbility.None, // 1
 		passiveAbility2 : PassiveAbility.None, // 1
@@ -74,5 +77,5 @@ function get_active_ability_var ()
 
 function get_bytes_per_player_var ()
 {
-	return 245;
+	return 246;
 }

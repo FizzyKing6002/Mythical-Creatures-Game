@@ -6,3 +6,9 @@ steamName = steam_get_persona_name();
 playerList = [get_player_var()];
 playerList[0].steamID = steamID;
 playerList[0].steamName = steamName;
+
+gameData =
+{
+	player1ID : 0,
+	player2ID : 0,
+}

@@ -17,8 +17,8 @@ while (steam_net_packet_receive())
 			handle_player_ready_accept(inbuf);
 		break;
 		
-		case PacketType.GameStart:
-			handle_game_start(inbuf);
+		case PacketType.GameStartEvent:
+			handle_game_start_event(inbuf);
 		break;
 		
 		default:
