@@ -9,16 +9,8 @@ image_yscale = 1.25;
 
 function select_action ()
 {
-	if self_get_ready() then
-	{
-		global.client.localRequests.ready.request = true;
-		global.client.localRequests.ready.state = true;
-		text = "Unready";
-		return;
-	}
 	global.client.localRequests.ready.request = true;
-	global.client.localRequests.ready.state = false;
-	text = "Ready";
+	global.client.localRequests.ready.state = !self_get_ready();
 }
 
 function self_get_ready ()

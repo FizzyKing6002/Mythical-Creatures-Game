@@ -1,8 +1,10 @@
 if !instance_exists(obj_client) then { show_debug_message("Client not initialised..."); exit; }
 
+if self_get_ready() then text = "Unready";
+else text = "Ready";
+
 if self_get_spectating()
 {
-	text = "Unready";
 	image_index = 3;
 	exit;
 }
