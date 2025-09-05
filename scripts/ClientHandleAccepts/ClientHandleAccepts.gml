@@ -131,7 +131,7 @@ function handle_player_join_team_accept (_b)
 	var _steamID = buffer_read(_b, buffer_u64);
 	var _team = buffer_read(_b, buffer_u8);
 	
-	if _team == Team.None then make_player_ready(_steamID, true);
+	if _team == Team.None or _steamID == hostID then make_player_ready(_steamID, true);
 	else make_player_ready(_steamID, false);
 	make_player_join_team(_steamID, _team);
 }
