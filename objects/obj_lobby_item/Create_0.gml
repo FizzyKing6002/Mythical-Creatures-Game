@@ -1,5 +1,3 @@
-hovered = false;
-selected = false;
 disabled = false;
 
 textColor = c_white;

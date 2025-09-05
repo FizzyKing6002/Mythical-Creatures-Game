@@ -1,12 +1,12 @@
 /// @self obj_local_host
-function handle_game_start ()
+function handle_combat_start ()
 {
 	var _nonSpectators = get_ids_of_non_spectators();
-	gameData.player1ID = _nonSpectators[0];
-	gameData.player2ID = _nonSpectators[1];
+	combatData.player1ID = _nonSpectators[0];
+	combatData.player2ID = _nonSpectators[1];
 	
-	init_player(gameData.player1ID);
-	init_player(gameData.player2ID);
+	init_player(combatData.player1ID);
+	init_player(combatData.player2ID);
 }
 
 /// @self obj_local_host

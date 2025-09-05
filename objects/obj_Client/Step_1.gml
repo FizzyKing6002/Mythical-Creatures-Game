@@ -17,8 +17,12 @@ while (steam_net_packet_receive())
 			handle_player_ready_accept(inbuf);
 		break;
 		
-		case PacketType.GameStartEvent:
-			handle_game_start_event(inbuf);
+		case PacketType.PlayerJoinTeamAccept:
+			handle_player_join_team_accept(inbuf);
+		break;
+		
+		case PacketType.CombatStartEvent:
+			handle_combat_start_event(inbuf);
 		break;
 		
 		default:

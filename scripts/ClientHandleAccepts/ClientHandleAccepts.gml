@@ -14,12 +14,13 @@ function handle_player_sync_accept (_b)
 		var _steamName = steam_get_user_persona_name_sync(_steamID);
 		var _readyNum = buffer_read(_b, buffer_u8);
 		var _readyBool = _readyNum != 0;
-		var _spectatingNum = buffer_read(_b, buffer_u8);
-		var _spectatingBool = _spectatingNum != 0;
+		var _team = buffer_read(_b, buffer_u8);
+		var _benchNum = buffer_read(_b, buffer_u8);
 		_player.steamID = _steamID;
 		_player.steamName = _steamName;
 		_player.ready = _readyBool;
-		_player.spectating = _spectatingBool;
+		_player.team = _team;
+		_player.benchNum = _benchNum;
 		
 		for (var _creatureIndex = 0; _creatureIndex < 4; _creatureIndex++)
 		{
@@ -117,12 +118,24 @@ function handle_player_sync_accept (_b)
 /// @self obj_client
 function handle_player_ready_accept (_b)
 {
-	var _readyID = buffer_read(_b, buffer_u64);
-	make_player_ready(_readyID);
+	var _steamID = buffer_read(_b, buffer_u64);
+	var _stateNum = buffer_read(_b, buffer_u8);
+	var _stateBool = _stateNum != 0;
+	
+	make_player_ready(_steamID, _stateBool);
 }
 
 /// @self obj_client
-function handle_game_start_event (_b)
+function handle_player_join_team_accept (_b)
 {
-	room_goto(rm_game);
+	var _steamID = buffer_read(_b, buffer_u64);
+	var _team = buffer_read(_b, buffer_u8);
+	
+	make_player_join_team(_steamID, _team);
+}
+
+/// @self obj_client
+function handle_combat_start_event (_b)
+{
+	room_goto(rm_combat);
 }

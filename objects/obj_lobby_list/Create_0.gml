@@ -14,7 +14,7 @@ alarm[0] = 500;
 
 
 
-function resetLobbyList ()
+function reset_lobby_list ()
 {
 	for (var _i = 0; _i < array_length(lobbyList); _i++)
 	{

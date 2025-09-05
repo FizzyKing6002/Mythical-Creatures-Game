@@ -23,7 +23,7 @@
   ],
   "name":"spr_salamander_model",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"CreatureModels",
     "path":"folders/Sprites/Game/CreatureModels.yy",
@@ -78,7 +78,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":32,
-    "yorigin":32,
+    "yorigin":48,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

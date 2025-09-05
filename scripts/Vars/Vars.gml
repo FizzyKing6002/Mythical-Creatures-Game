@@ -1,4 +1,21 @@
-/// @desc Returns player dictionary of buffer length 246
+function get_creature_game_var ()
+{
+	var _creatureVar =
+	{
+		identifier : Creature.None,
+		passiveAbility1 : PassiveAbility.None,
+		passiveAbility2 : PassiveAbility.None,
+		passiveAbility3 : PassiveAbility.None,
+		activeAbility : ActiveAbility.None,
+		move1 : Move.None,
+		move2 : Move.None,
+		move3 : Move.None,
+		move4 : Move.None,
+	}
+	return _creatureVar;
+}
+
+/// @desc Returns player dictionary of buffer length 247
 function get_player_var ()
 {
 	var _playerVar =
@@ -6,17 +23,18 @@ function get_player_var ()
 		steamID : 0, // 8
 		steamName : "Player",
 		ready : false, // 1
-		spectating : false, // 1
-		creature1 : get_creature_var(),
-		creature2 : get_creature_var(),
-		creature3 : get_creature_var(),
-		creature4 : get_creature_var(),
+		team : Team.None, // 1
+		benchNum : 0, // 1
+		creature1 : get_creature_combat_var(),
+		creature2 : get_creature_combat_var(),
+		creature3 : get_creature_combat_var(),
+		creature4 : get_creature_combat_var(),
 	}
 	return _playerVar;
 }
 
 /// @desc Returns creature dictionary of buffer length 59
-function get_creature_var ()
+function get_creature_combat_var ()
 {
 	var _creatureVar =
 	{
@@ -77,5 +95,5 @@ function get_active_ability_var ()
 
 function get_bytes_per_player_var ()
 {
-	return 246;
+	return 247;
 }

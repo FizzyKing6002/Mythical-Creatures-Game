@@ -6,5 +6,6 @@ playerList[0].ready = true;
 
 localRequests =
 {
-	gameStart : { request : false, },
+	joinTeam : { request : false, team : Team.None, },
+	combatStart : { request : false, },
 }

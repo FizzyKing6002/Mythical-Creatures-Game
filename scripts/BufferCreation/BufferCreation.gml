@@ -20,7 +20,8 @@ function buffer_create_player_sync_accept ()
 		
 		buffer_write(_b, buffer_u64, _player.steamID);
 		buffer_write(_b, buffer_u8, _player.ready);
-		buffer_write(_b, buffer_u8, _player.spectating);
+		buffer_write(_b, buffer_u8, _player.team);
+		buffer_write(_b, buffer_u8, _player.benchNum);
 		
 		for (var _creatureIndex = 0; _creatureIndex < 4; _creatureIndex++)
 		{
@@ -80,32 +81,57 @@ function buffer_create_player_sync_accept ()
 }
 
 /// @self obj_client
-function buffer_create_player_ready_request ()
+function buffer_create_player_ready_request (_state)
 {
-	var _b = buffer_create(1, buffer_fixed, 1);
+	var _b = buffer_create(2, buffer_fixed, 1);
 	
 	buffer_write(_b, buffer_u8, PacketType.PlayerReadyRequest);
+	buffer_write(_b, buffer_u8, _state);
 	
 	return _b;
 }
 
 /// @self obj_server
-function buffer_create_player_ready_accept (_steamID)
+function buffer_create_player_ready_accept (_steamID, _state)
 {
-	var _b = buffer_create(9, buffer_fixed, 1);
+	var _b = buffer_create(10, buffer_fixed, 1);
 	
 	buffer_write(_b, buffer_u8, PacketType.PlayerReadyAccept);
 	buffer_write(_b, buffer_u64, _steamID);
+	buffer_write(_b, buffer_u8, _state);
+	
+	return _b;
+}
+
+/// @self obj_client
+function buffer_create_player_join_team_request (_team)
+{
+	var _b = buffer_create(2, buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.PlayerJoinTeamRequest);
+	buffer_write(_b, buffer_u8, _team);
 	
 	return _b;
 }
 
 /// @self obj_server
-function buffer_create_game_start ()
+function buffer_create_player_join_team_accept (_steamID, _team)
+{
+	var _b = buffer_create(10, buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.PlayerJoinTeamAccept);
+	buffer_write(_b, buffer_u64, _steamID);
+	buffer_write(_b, buffer_u8, _team);
+	
+	return _b;
+}
+
+/// @self obj_server
+function buffer_create_combat_start ()
 {
 	var _b = buffer_create(1, buffer_fixed, 1);
 	
-	buffer_write(_b, buffer_u8, PacketType.GameStartEvent);
+	buffer_write(_b, buffer_u8, PacketType.CombatStartEvent);
 	
 	return _b;
 }

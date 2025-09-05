@@ -1,1 +1,0 @@
-if readyBool then image_index = 3;

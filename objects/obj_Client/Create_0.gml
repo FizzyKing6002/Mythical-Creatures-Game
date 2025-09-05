@@ -6,5 +6,6 @@ hostID = 0;
 
 localRequests =
 {
-	ready : { request : false, },
+	ready : { request : false, state : false, },
+	joinTeam : { request : false, team : Team.None, },
 }

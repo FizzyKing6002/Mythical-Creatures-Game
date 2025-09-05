@@ -4,20 +4,29 @@ enum PacketType // max length 256
 	PlayerSyncAccept,
 	PlayerReadyRequest,
 	PlayerReadyAccept,
-	GameStartEvent,
+	PlayerJoinTeamRequest,
+	PlayerJoinTeamAccept,
+	CombatStartEvent,
 }
 
 enum LocalHost
 {
-	None,
 	Server,
 	Client,
+	None,
+}
+
+enum Team // max length 256
+{
+	Blue,
+	Red,
+	None,
 }
 
 enum Creature // max length 256
 {
-	None,
 	Salamander,
+	None,
 }
 
 enum Move // max length 256

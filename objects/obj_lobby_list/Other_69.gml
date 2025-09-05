@@ -1,7 +1,7 @@
 switch async_load[?"event_type"]
 {
 	case "lobby_list":
-		resetLobbyList();
+		reset_lobby_list();
 		
 		if steam_lobby_list_get_count() == 0
 		{
