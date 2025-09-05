@@ -16,7 +16,11 @@ function handle_server_join_team_request (_team)
 	if approve_server_join_team(_team)
 	{
 		send_player_join_team_accept(steamID, _team);
+		
+		if _team == Team.None then make_player_ready(steamID, true);
+		else make_player_ready(steamID, false);
 		make_player_join_team(steamID, _team);
+		
 		return;
 	}
 	show_debug_message("Team was full, request denied.");

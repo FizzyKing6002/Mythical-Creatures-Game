@@ -32,7 +32,11 @@ function handle_player_join_team_request (_senderID, _b)
 	if approve_player_join_team(_senderID, _team)
 	{
 		send_player_join_team_accept(_senderID, _team);
+		
+		if _team == Team.None then make_player_ready(_senderID, true);
+		else make_player_ready(_senderID, false);
 		make_player_join_team(_senderID, _team);
+		
 		return;
 	}
 	show_debug_message("Player attempted to join full team, request denied.");

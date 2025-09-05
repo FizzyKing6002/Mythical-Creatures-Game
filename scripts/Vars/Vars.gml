@@ -22,7 +22,7 @@ function get_player_var ()
 	{
 		steamID : 0, // 8
 		steamName : "Player",
-		ready : false, // 1
+		ready : true, // 1
 		team : Team.None, // 1
 		benchNum : 0, // 1
 		creature1 : get_creature_combat_var(),
