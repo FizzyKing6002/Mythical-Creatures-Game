@@ -9,8 +9,21 @@ playerList[0].steamName = steamName;
 
 combatData =
 {
-	player1ID : 0,
-	player2ID : 0,
+	partySelectStage : 0,
+	
+	blueID : 0,
+	blueCreature1 : get_creature_var(),
+	blueCreature2 : get_creature_var(),
+	blueCreature3 : get_creature_var(),
+	blueCreature4 : get_creature_var(),
+	blueBenchNum : 0,
+	
+	redID : 0,
+	redCreature1 : get_creature_var(),
+	redCreature2 : get_creature_var(),
+	redCreature3 : get_creature_var(),
+	redCreature4 : get_creature_var(),
+	redBenchNum : 0,
 }
 
 
@@ -27,9 +40,9 @@ function local_get_team_full (_team)
 {
 	return get_team_full(_team);
 }
-function local_get_player_spectating (_steamID)
+function local_get_player_team (_steamID)
 {
-	return get_player_spectating(_steamID);
+	return get_player_team(_steamID);
 }
 function local_get_num_non_spectators ()
 {

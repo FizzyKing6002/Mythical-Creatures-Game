@@ -59,12 +59,12 @@ function make_player_join_team (_steamID, _team)
 }
 
 /// @self obj_device_handler
-function get_player_spectating (_steamID)
+function get_player_team (_steamID)
 {
 	var _index = get_index_by_player_id(_steamID);
 	
-	if _index == -1 then { show_debug_message("Target to get spectating status not found..."); return true; }
-	return playerList[_index].team == Team.None;
+	if _index == -1 then { show_debug_message("Target to get team not found..."); return Team.None; }
+	return playerList[_index].team;
 }
 
 /// @self obj_device_handler

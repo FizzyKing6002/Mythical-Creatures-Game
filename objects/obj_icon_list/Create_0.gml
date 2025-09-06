@@ -21,13 +21,11 @@ for (var _i = 0; _i < 4; _i++)
 	_inst.teamSlot = _i;
 }
 
-
-
 for (var _creatureID = 0; _creatureID < Creature.None; _creatureID++)
 {
 	var _iconSprite = get_icon_sprite_by_creature(_creatureID);
 	
-	var _inst = instance_create_layer(50 + 40*(_creatureID mod 7), 50 + 40*(_creatureID div 7), iconLayer, obj_icon_slot);
+	var _inst = instance_create_layer(bbox_left+30 + 40*(_creatureID mod 7), bbox_top+30 + 40*(_creatureID div 7), iconLayer, obj_icon_slot);
 	_inst.creatureID = _creatureID;
 	_inst.sprite_index = _iconSprite;
 	

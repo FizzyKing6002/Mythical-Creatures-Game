@@ -1,6 +1,6 @@
 if localHostObj == noone then exit;
 
-if self_get_team_full() or ( team == Team.None and self_get_spectating() ) or ( team != Team.None and !self_get_spectating() )
+if self_get_team_full() || ( team == Team.None && self_get_team() == Team.None ) || ( team != Team.None && self_get_team() != Team.None )
 {
 	image_index = 3;
 	exit;

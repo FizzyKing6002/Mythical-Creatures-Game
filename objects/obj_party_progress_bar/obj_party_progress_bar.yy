@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_combat_start",
+  "%Name":"obj_party_progress_bar",
   "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_combat_start",
+  "name":"obj_party_progress_bar",
   "overriddenProperties":[],
   "parent":{
-    "name":"Lobby",
-    "path":"folders/Objects/UI/Lobby.yy",
+    "name":"PartySelect",
+    "path":"folders/Objects/UI/PartySelect.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_button",
-    "path":"sprites/spr_button/spr_button.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

@@ -24,6 +24,30 @@ function send_player_join_team_accept (_steamID, _team)
 }
 
 /// @self obj_server
+function send_party_select_start ()
+{
+	var _b = buffer_create_party_select_start();
+	buffer_bounce_server_to_clients(_b);
+	buffer_delete(_b);
+}
+
+/// @self obj_server
+function send_player_party_select_next_accept ()
+{
+	var _b = buffer_create_player_party_select_next_accept();
+	buffer_bounce_server_to_clients(_b);
+	buffer_delete(_b);
+}
+
+/// @self obj_server
+function send_player_party_select_creature_accept (_creature)
+{
+	var _b = buffer_create_player_party_select_creature_accept(_creature);
+	buffer_bounce_server_to_clients(_b);
+	buffer_delete(_b);
+}
+
+/// @self obj_server
 function send_combat_start ()
 {
 	var _b = buffer_create_combat_start();

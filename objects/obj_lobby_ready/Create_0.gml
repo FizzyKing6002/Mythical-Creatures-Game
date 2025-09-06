@@ -18,7 +18,7 @@ function self_get_ready ()
 	return global.client.local_get_player_ready(global.client.steamID);
 }
 
-function self_get_spectating ()
+function self_get_team ()
 {
-	return global.client.local_get_player_spectating(global.client.steamID);
+	return global.client.local_get_player_team(global.client.steamID);
 }

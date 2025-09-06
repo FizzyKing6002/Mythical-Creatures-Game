@@ -3,7 +3,7 @@ if !instance_exists(obj_client) then { show_debug_message("Client not initialise
 if self_get_ready() then text = "Unready";
 else text = "Ready";
 
-if self_get_spectating()
+if self_get_team() == Team.None
 {
 	image_index = 3;
 	exit;

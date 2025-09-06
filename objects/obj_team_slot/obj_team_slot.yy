@@ -10,8 +10,8 @@
   "name":"obj_team_slot",
   "overriddenProperties":[],
   "parent":{
-    "name":"TeamSelect",
-    "path":"folders/Objects/UI/TeamSelect.yy",
+    "name":"PartySelect",
+    "path":"folders/Objects/UI/PartySelect.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,6 +1,6 @@
 if room == rm_lobby
 {
-	instance_create_depth(320, 304, 0, obj_combat_start);
+	instance_create_depth(320, 304, 0, obj_party_select_start);
 	exit;
 }
 

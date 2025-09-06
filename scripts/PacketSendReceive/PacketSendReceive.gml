@@ -15,7 +15,10 @@ function buffer_bounce_server_to_clients (_b)
 {
 	for (var _i = 0; _i < array_length(playerList); _i++)
 	{
-		steam_net_packet_send(playerList[_i].steamID, _b);
+		var _playerID = playerList[_i].steamID;
+		
+		if _playerID == steamID then continue;
+		steam_net_packet_send(_playerID, _b);
 	}
 }
 
@@ -55,7 +58,10 @@ function data_bounce_server_to_clients (_data)
 	
 	for (var _i = 0; _i < array_length(playerList); _i++)
 	{
-		steam_net_packet_send(playerList[_i].steamID, _b);
+		var _playerID = playerList[_i].steamID;
+		
+		if _playerID == steamID then continue;
+		steam_net_packet_send(_playerID, _b);
 	}
 	buffer_delete(_b);
 }

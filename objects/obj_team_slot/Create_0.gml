@@ -2,10 +2,14 @@ textColor = c_white;
 text = "Team Select";
 
 teamSlot = 0;
+displaySprite = undefined;
 
 image_xscale = 2;
 
-displaySprite = undefined;
+localHostObj = noone;
+if instance_exists(obj_server) then localHostObj = global.server;
+else if instance_exists(obj_client) then localHostObj = global.client;
+else show_debug_message("Server or client not initialised...");
 
 
 

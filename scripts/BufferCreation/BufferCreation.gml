@@ -127,6 +127,58 @@ function buffer_create_player_join_team_accept (_steamID, _team)
 }
 
 /// @self obj_server
+function buffer_create_party_select_start ()
+{
+	var _b = buffer_create(1, buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.PartySelectStartEvent);
+	
+	return _b;
+}
+
+/// @self obj_client
+function buffer_create_player_party_select_next_request ()
+{
+	var _b = buffer_create(1, buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.PlayerPartySelectNextRequest);
+	
+	return _b;
+}
+
+/// @self obj_server
+function buffer_create_player_party_select_next_accept ()
+{
+	var _b = buffer_create(1, buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.PlayerPartySelectNextAccept);
+	
+	return _b;
+}
+
+/// @self obj_client
+function buffer_create_player_party_select_creature_request (_creature)
+{
+	var _b = buffer_create(2, buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.PlayerPartySelectCreatureRequest);
+	buffer_write(_b, buffer_u8, _creature);
+	
+	return _b;
+}
+
+/// @self obj_server
+function buffer_create_player_party_select_creature_accept (_creature)
+{
+	var _b = buffer_create(2, buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.PlayerPartySelectCreatureAccept);
+	buffer_write(_b, buffer_u8, _creature);
+	
+	return _b;
+}
+
+/// @self obj_server
 function buffer_create_combat_start ()
 {
 	var _b = buffer_create(1, buffer_fixed, 1);

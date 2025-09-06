@@ -1,13 +1,13 @@
 {
   "$GMRoom":"v1",
-  "%Name":"rm_team_select",
-  "creationCodeFile":"rooms/rm_team_select/RoomCreationCode.gml",
+  "%Name":"rm_party_select",
+  "creationCodeFile":"rooms/rm_party_select/RoomCreationCode.gml",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_75402DCA","path":"rooms/rm_team_select/rm_team_select.yy",},
-    {"name":"inst_6E2C38E","path":"rooms/rm_team_select/rm_team_select.yy",},
+    {"name":"inst_75402DCA","path":"rooms/rm_party_select/rm_party_select.yy",},
+    {"name":"inst_155BB344","path":"rooms/rm_party_select/rm_party_select.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -15,12 +15,12 @@
     {"$GMRInstanceLayer":"","%Name":"CreatureIcons","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"CreatureIcons","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"CreatureModels","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"CreatureModels","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v2","%Name":"inst_75402DCA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_75402DCA","objectId":{"name":"obj_icon_list","path":"objects/obj_icon_list/obj_icon_list.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":37.0,"scaleY":10.0,"x":320.0,"y":104.0,},
-        {"$GMRInstance":"v2","%Name":"inst_6E2C38E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6E2C38E","objectId":{"name":"obj_team_back","path":"objects/obj_team_back/obj_team_back.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":608.0,"y":336.0,},
+        {"$GMRInstance":"v2","%Name":"inst_75402DCA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_75402DCA","objectId":{"name":"obj_icon_list","path":"objects/obj_icon_list/obj_icon_list.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":37.0,"scaleY":10.0,"x":320.0,"y":112.0,},
+        {"$GMRInstance":"v2","%Name":"inst_155BB344","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_155BB344","objectId":{"name":"obj_party_progress_bar","path":"objects/obj_party_progress_bar/obj_party_progress_bar.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":16.0,"y":320.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":23,"SerialiseWidth":40,"TileCompressedData":[-920,1,],"TileDataFormat":1,},"tilesetId":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
   ],
-  "name":"rm_team_select",
+  "name":"rm_party_select",
   "parent":{
     "name":"Rooms",
     "path":"folders/Rooms.yy",

@@ -21,6 +21,18 @@ while (steam_net_packet_receive())
 			handle_player_join_team_accept(inbuf);
 		break;
 		
+		case PacketType.PartySelectStartEvent:
+			handle_party_select_start_event(inbuf);
+		break;
+		
+		case PacketType.PlayerPartySelectNextAccept:
+			handle_player_party_select_next_accept(inbuf);
+		break;
+		
+		case PacketType.PlayerPartySelectCreatureAccept:
+			handle_player_party_select_creature_accept(inbuf);
+		break;
+		
 		case PacketType.CombatStartEvent:
 			handle_combat_start_event(inbuf);
 		break;

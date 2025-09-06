@@ -19,6 +19,7 @@ function select_action ()
 		case Team.Blue: localHostObj.localRequests.joinTeam.team = Team.Blue; break;
 		case Team.Red: localHostObj.localRequests.joinTeam.team = Team.Red; break;
 		case Team.None: localHostObj.localRequests.joinTeam.team = Team.None; break;
+		default: show_debug_message("Team not accounted for..."); break;
 	}
 }
 
@@ -27,7 +28,7 @@ function self_get_team_full ()
 	return localHostObj.local_get_team_full(team);
 }
 
-function self_get_spectating ()
+function self_get_team ()
 {
-	return localHostObj.local_get_player_spectating(localHostObj.steamID);
+	return localHostObj.local_get_player_team(localHostObj.steamID);
 }

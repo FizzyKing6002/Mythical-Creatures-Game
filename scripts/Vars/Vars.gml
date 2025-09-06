@@ -1,20 +1,3 @@
-function get_creature_game_var ()
-{
-	var _creatureVar =
-	{
-		identifier : Creature.None,
-		passiveAbility1 : PassiveAbility.None,
-		passiveAbility2 : PassiveAbility.None,
-		passiveAbility3 : PassiveAbility.None,
-		activeAbility : ActiveAbility.None,
-		move1 : Move.None,
-		move2 : Move.None,
-		move3 : Move.None,
-		move4 : Move.None,
-	}
-	return _creatureVar;
-}
-
 /// @desc Returns player dictionary of buffer length 247
 function get_player_var ()
 {
@@ -25,16 +8,16 @@ function get_player_var ()
 		ready : true, // 1
 		team : Team.None, // 1
 		benchNum : 0, // 1
-		creature1 : get_creature_combat_var(),
-		creature2 : get_creature_combat_var(),
-		creature3 : get_creature_combat_var(),
-		creature4 : get_creature_combat_var(),
+		creature1 : get_creature_var(),
+		creature2 : get_creature_var(),
+		creature3 : get_creature_var(),
+		creature4 : get_creature_var(),
 	}
 	return _playerVar;
 }
 
 /// @desc Returns creature dictionary of buffer length 59
-function get_creature_combat_var ()
+function get_creature_var ()
 {
 	var _creatureVar =
 	{

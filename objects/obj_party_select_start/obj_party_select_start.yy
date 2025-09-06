@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_team_back",
+  "%Name":"obj_party_select_start",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_team_back",
+  "name":"obj_party_select_start",
   "overriddenProperties":[],
   "parent":{
-    "name":"TeamSelect",
-    "path":"folders/Objects/UI/TeamSelect.yy",
+    "name":"Lobby",
+    "path":"folders/Objects/UI/Lobby.yy",
   },
   "parentObjectId":null,
   "persistent":false,

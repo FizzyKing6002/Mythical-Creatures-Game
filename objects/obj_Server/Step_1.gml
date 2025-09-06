@@ -20,6 +20,14 @@ while (steam_net_packet_receive())
 			handle_player_join_team_request(_senderID, inbuf);
 		break;
 		
+		case PacketType.PlayerPartySelectNextRequest:
+			handle_player_party_select_next_request(_senderID, inbuf);
+		break;
+		
+		case PacketType.PlayerPartySelectCreatureRequest:
+			handle_player_party_select_creature_request(_senderID, inbuf);
+		break;
+		
 		default:
 			show_debug_message("Server received unknown packet: " + string(_packetType));
 		break;
