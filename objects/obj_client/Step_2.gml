@@ -20,6 +20,6 @@ if localRequests.partySelectNext.request
 
 if localRequests.partySelectCreature.request
 {
-	handle_client_party_select_creature_request(localRequests.partySelectCreature.Creature);
+	handle_client_party_select_creature_request(localRequests.partySelectCreature.creature);
 	localRequests.partySelectCreature.request = false;
 }
