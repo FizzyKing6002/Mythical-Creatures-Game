@@ -17,6 +17,7 @@ function handle_server_party_select_start_request ()
 	{
 		send_party_select_start_event();
 		room_goto(rm_party_select);
+		fill_ids_of_team_players();
 		return;
 	}
 	show_debug_message("Party select start denied.");

@@ -10,10 +10,11 @@ if _partySelectStage > completedSegments
 var _segmentTime = current_time - startMS;
 segmentProgress = clamp(_segmentTime / segmentDuration, 0, 1);
 
-if instance_exists(obj_server) && _segmentTime > segmentDuration + lenienceDuration
+if instance_exists(obj_server) && _segmentTime > segmentDuration + lenienceDuration && completedSegments < 8
 {
 	localHostObj.localRequests.partySelectTimeout.request = true;
 	
 	completedSegments++;
+	segmentProgress = 0;
 	startMS = current_time;
 }

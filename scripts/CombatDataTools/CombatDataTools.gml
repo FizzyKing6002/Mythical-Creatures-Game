@@ -1,4 +1,23 @@
 /// @self obj_local_host
+function fill_ids_of_team_players ()
+{
+	var _ids = get_ids_of_non_spectators();
+	if _ids == undefined then { show_debug_message("Failed to fill ids of team players..."); return; }
+	
+	for (var _i = 0; _i < 2; _i++)
+	{
+		var _steamID = _ids[_i];
+		var _team = get_player_team(_steamID);
+		
+		if _team == Team.Blue then { combatData.blueID = _steamID; continue; }
+		if _team == Team.Red then { combatData.redID = _steamID; continue; }
+		show_debug_message("Failed to fill id...");
+	}
+	
+	
+}
+
+/// @self obj_local_host
 function player_currently_selecting (_playerID)
 {
 	var _team = get_player_team(_playerID);

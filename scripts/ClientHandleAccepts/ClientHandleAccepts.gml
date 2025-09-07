@@ -140,6 +140,7 @@ function handle_player_join_team_accept (_b)
 function handle_party_select_start_event (_b)
 {
 	room_goto(rm_party_select);
+	fill_ids_of_team_players();
 }
 
 /// @self obj_client

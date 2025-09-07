@@ -1,4 +1,4 @@
-if localHostObj == noone then { show_debug_message("."); return; }
+if localHostObj == noone then exit;
 
 var _partySelectStage = localHostObj.combatData.partySelectStage
 
@@ -9,7 +9,6 @@ if team == Team.None ||
 	image_alpha = 1;
 	exit;
 }
-
 if point_in_rectangle(mouse_x, mouse_y, bbox_left, bbox_top, bbox_right, bbox_bottom)
 {
 	if mouse_check_button(mb_left)

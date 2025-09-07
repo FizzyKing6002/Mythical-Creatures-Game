@@ -90,5 +90,5 @@ function get_ids_of_non_spectators ()
 	if array_length(_nonSpectators) == 2 then return _nonSpectators;
 	
 	show_debug_message("More or less than 2 non spectators were found...");
-	return [0, 0];
+	return undefined;
 }
