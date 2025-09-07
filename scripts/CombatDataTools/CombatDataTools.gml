@@ -24,8 +24,8 @@ function player_currently_selecting (_playerID)
 	switch _team
 	{
 		case Team.None: return false;
-		case Team.Blue: if !array_contains([0, 3, 4, 6], combatData.partySelectStage) then return false;
-		case Team.Red: if !array_contains([1, 2, 5, 7], combatData.partySelectStage) then return false;
+		case Team.Blue: if !array_contains([0, 3, 4, 6], combatData.partySelectStage) then return false; break;
+		case Team.Red: if !array_contains([1, 2, 5, 7], combatData.partySelectStage) then return false; break;
 		default: show_debug_message("Team not accounted for..."); return false;
 	}
 	return true;
