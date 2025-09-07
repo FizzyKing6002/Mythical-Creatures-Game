@@ -15,5 +15,5 @@ function select_action ()
 
 function self_get_current_party_slot_empty ()
 {
-	return local_get_current_party_slot_empty();
+	return localHostObj.local_get_current_party_slot_empty();
 }
