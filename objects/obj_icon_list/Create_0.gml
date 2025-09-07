@@ -8,17 +8,22 @@ instLayer = layer_get_id("Instances");
 for (var _i = 0; _i < 4; _i++)
 {
 	var _xPos = 0;
+	var _yPos = 0;
 	switch _i
 	{
-		case 0: _xPos = 110; break;
-		case 1: _xPos = 250; break;
-		case 2: _xPos = 390; break;
-		case 3: _xPos = 530; break;
-		default: show_debug_message("There should be no fifth team slot..."); continue;
+		case 0: _xPos = 90; _yPos = 250; break;
+		case 1: _xPos = 210; _yPos = 250; break;
+		case 2: _xPos = 90; _yPos = 310; break;
+		case 3: _xPos = 210; _yPos = 310; break;
+		case 4: _xPos = 430; _yPos = 250; break;
+		case 5: _xPos = 550; _yPos = 250; break;
+		case 6: _xPos = 430; _yPos = 310; break;
+		case 7: _xPos = 550; _yPos = 310; break;
+		default: show_debug_message("There should be no ninth party slot..."); continue;
 	}
 	
-	var _inst = instance_create_layer(_xPos, 290, instLayer, obj_team_slot);
-	_inst.teamSlot = _i;
+	var _inst = instance_create_layer(_xPos, _yPos, instLayer, obj_party_slot);
+	_inst.partySlot = _i;
 }
 
 for (var _creatureID = 0; _creatureID < Creature.None; _creatureID++)
