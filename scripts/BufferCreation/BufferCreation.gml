@@ -127,11 +127,22 @@ function buffer_create_player_join_team_accept (_steamID, _team)
 }
 
 /// @self obj_server
-function buffer_create_party_select_start ()
+function buffer_create_party_select_start_event ()
 {
 	var _b = buffer_create(1, buffer_fixed, 1);
 	
 	buffer_write(_b, buffer_u8, PacketType.PartySelectStartEvent);
+	
+	return _b;
+}
+
+/// @self obj_client
+function buffer_create_party_select_timeout_event (_creature)
+{
+	var _b = buffer_create(2, buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.PartySelectTimeoutEvent);
+	buffer_write(_b, buffer_u8, _creature);
 	
 	return _b;
 }
@@ -179,7 +190,7 @@ function buffer_create_player_party_select_creature_accept (_creature)
 }
 
 /// @self obj_server
-function buffer_create_combat_start ()
+function buffer_create_combat_start_event ()
 {
 	var _b = buffer_create(1, buffer_fixed, 1);
 	

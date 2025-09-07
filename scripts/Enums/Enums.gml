@@ -9,6 +9,7 @@ enum PacketType // max length 256
 	PlayerJoinTeamAccept,
 	
 	PartySelectStartEvent,
+	PartySelectTimeoutEvent,
 	PlayerPartySelectNextRequest,
 	PlayerPartySelectNextAccept,
 	PlayerPartySelectCreatureRequest,

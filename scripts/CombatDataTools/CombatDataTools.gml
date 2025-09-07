@@ -13,6 +13,32 @@ function player_currently_selecting (_playerID)
 }
 
 /// @self obj_local_host
+function pick_random_available_creature ()
+{
+	if !get_current_party_slot_empty then return Creature.None;
+	
+	var _chosenCreatures = [];
+	array_push(_chosenCreatures, combatData.blueCreature1.identifier);
+	array_push(_chosenCreatures, combatData.blueCreature2.identifier);
+	array_push(_chosenCreatures, combatData.blueCreature3.identifier);
+	array_push(_chosenCreatures, combatData.blueCreature4.identifier);
+	array_push(_chosenCreatures, combatData.redCreature1.identifier);
+	array_push(_chosenCreatures, combatData.redCreature2.identifier);
+	array_push(_chosenCreatures, combatData.redCreature3.identifier);
+	array_push(_chosenCreatures, combatData.redCreature4.identifier);
+	
+	var _randomCreatureChoices = [];
+	for (var _i = 0; _i < Creature.None; _i++)
+	{
+		if array_contains(_chosenCreatures, _i) then continue;
+		array_push(_randomCreatureChoices, _i);
+	}
+	
+	var _index = irandom(array_length(_randomCreatureChoices) - 1);
+	return _randomCreatureChoices[_index];
+}
+
+/// @self obj_local_host
 function get_current_party_slot_empty ()
 {
 	switch combatData.partySelectStage

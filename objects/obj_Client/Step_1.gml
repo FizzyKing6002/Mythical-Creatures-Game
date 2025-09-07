@@ -25,6 +25,10 @@ while (steam_net_packet_receive())
 			handle_party_select_start_event(inbuf);
 		break;
 		
+		case PacketType.PartySelectTimeoutEvent:
+			handle_party_select_timeout_event(inbuf);
+		break;
+		
 		case PacketType.PlayerPartySelectNextAccept:
 			handle_player_party_select_next_accept(inbuf);
 		break;

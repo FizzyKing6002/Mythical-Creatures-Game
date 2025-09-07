@@ -8,7 +8,8 @@ localRequests =
 {
 	joinTeam : { request : false, team : Team.None, },
 	partySelectStart : { request : false, },
-	partySelectNext : { request : false, force : false, },
+	partySelectTimeout : { request : false, },
+	partySelectNext : { request : false, },
 	partySelectCreature : { request : false, creature : Creature.None, },
 	combatStart : { request : false, },
 }

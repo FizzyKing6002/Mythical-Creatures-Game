@@ -29,6 +29,12 @@ function approve_server_party_select_start ()
 }
 
 /// @self obj_server
+function approve_server_party_select_timeout ()
+{
+	return true;
+}
+
+/// @self obj_server
 function approve_player_party_select_next (_steamID)
 {
 	return player_currently_selecting(_steamID) && get_current_party_slot_empty();

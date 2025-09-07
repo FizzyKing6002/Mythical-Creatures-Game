@@ -143,6 +143,15 @@ function handle_party_select_start_event (_b)
 }
 
 /// @self obj_client
+function handle_party_select_timeout_event (_b)
+{
+	var _creature = buffer_read(_b, buffer_u8);
+	
+	if _creature != Creature.None then change_current_creature(_creature);
+	next_party_select_stage();
+}
+
+/// @self obj_client
 function handle_player_party_select_next_accept (_b)
 {
 	next_party_select_stage();
