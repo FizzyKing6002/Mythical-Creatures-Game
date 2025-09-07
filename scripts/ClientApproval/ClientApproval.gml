@@ -13,7 +13,7 @@ function approve_client_join_team (_team)
 /// @self obj_client
 function approve_client_party_select_next ()
 {
-	return player_currently_selecting(steamID) && get_current_party_slot_empty();
+	return player_currently_selecting(steamID) && !get_current_party_slot_empty();
 }
 
 /// @self obj_client
