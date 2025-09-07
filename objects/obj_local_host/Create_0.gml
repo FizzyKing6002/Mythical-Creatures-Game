@@ -48,3 +48,7 @@ function local_get_num_non_spectators ()
 {
 	return get_num_non_spectators();
 }
+function local_get_current_party_slot_empty ()
+{
+	return get_current_party_slot_empty();
+}

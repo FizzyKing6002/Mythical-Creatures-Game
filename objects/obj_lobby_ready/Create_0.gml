@@ -1,5 +1,4 @@
 textColor = c_white;
-
 text = "Ready";
 
 image_xscale = 2.75;

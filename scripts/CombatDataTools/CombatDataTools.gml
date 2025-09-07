@@ -34,8 +34,6 @@ function player_currently_selecting (_playerID)
 /// @self obj_local_host
 function pick_random_available_creature ()
 {
-	if !get_current_party_slot_empty then return Creature.None;
-	
 	var _chosenCreatures = [];
 	array_push(_chosenCreatures, combatData.blueCreature1.identifier);
 	array_push(_chosenCreatures, combatData.blueCreature2.identifier);

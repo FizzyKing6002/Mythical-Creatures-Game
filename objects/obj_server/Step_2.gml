@@ -21,7 +21,7 @@ if localRequests.partySelectNext.request
 	handle_server_party_select_next_request();
 	localRequests.partySelectNext.request = false;
 }
-
+	
 if localRequests.partySelectCreature.request
 {
 	handle_server_party_select_creature_request(localRequests.partySelectCreature.creature);

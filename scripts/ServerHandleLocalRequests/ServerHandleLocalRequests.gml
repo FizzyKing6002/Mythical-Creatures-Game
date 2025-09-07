@@ -28,7 +28,9 @@ function handle_server_party_select_timeout_request ()
 {
 	if approve_server_party_select_timeout()
 	{
-		var _creature = pick_random_available_creature();
+		var _creature = Creature.None;
+		show_debug_message(get_current_party_slot_empty())
+		if get_current_party_slot_empty() then _creature = pick_random_available_creature();
 		
 		send_party_select_timeout_event(_creature);
 		
