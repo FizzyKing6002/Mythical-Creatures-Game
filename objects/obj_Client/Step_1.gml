@@ -13,6 +13,10 @@ while (steam_net_packet_receive())
 			handle_player_sync_accept(inbuf);
 		break;
 		
+		case PacketType.CombatSyncAccept:
+			handle_combat_sync_accept(inbuf);
+		break;
+		
 		case PacketType.PlayerReadyAccept:
 			handle_player_ready_accept(inbuf);
 		break;

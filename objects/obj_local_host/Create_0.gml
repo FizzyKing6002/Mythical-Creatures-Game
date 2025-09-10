@@ -12,18 +12,19 @@ combatData =
 	partySelectStage : 0,
 	
 	blueID : 0,
+	redID : 0,
+	
+	blueBenchNum : 0,
+	redBenchNum : 0,
+	
 	blueCreature1 : get_creature_var(),
 	blueCreature2 : get_creature_var(),
 	blueCreature3 : get_creature_var(),
 	blueCreature4 : get_creature_var(),
-	blueBenchNum : 0,
-	
-	redID : 0,
 	redCreature1 : get_creature_var(),
 	redCreature2 : get_creature_var(),
 	redCreature3 : get_creature_var(),
 	redCreature4 : get_creature_var(),
-	redBenchNum : 0,
 }
 
 

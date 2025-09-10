@@ -2,6 +2,8 @@ enum PacketType // max length 256
 {
 	PlayerSyncRequest,
 	PlayerSyncAccept,
+	CombatSyncRequest,
+	CombatSyncAccept,
 	
 	PlayerReadyRequest,
 	PlayerReadyAccept,

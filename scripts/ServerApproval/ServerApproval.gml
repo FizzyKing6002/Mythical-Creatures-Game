@@ -5,6 +5,12 @@ function approve_player_sync (_steamID)
 }
 
 /// @self obj_server
+function approve_combat_sync (_steamID)
+{
+	return true;
+}
+
+/// @self obj_server
 function approve_player_ready (_steamID, _state)
 {
 	return _state != get_player_ready(_steamID);

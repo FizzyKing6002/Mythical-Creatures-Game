@@ -1,0 +1,1 @@
+handle_server_combat_start_request();

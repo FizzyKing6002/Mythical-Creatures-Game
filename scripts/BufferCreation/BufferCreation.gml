@@ -11,9 +11,10 @@ function buffer_create_player_sync_request ()
 /// @self obj_server
 function buffer_create_player_sync_accept ()
 {
-	var _b = buffer_create(1 + get_bytes_per_player_var()*array_length(playerList), buffer_fixed, 1);
+	var _b = buffer_create(1 + array_length(playerList)*get_bytes_per_player_var(), buffer_fixed, 1);
 	
 	buffer_write(_b, buffer_u8, PacketType.PlayerSyncAccept);
+	
 	for (var _playerIndex = 0; _playerIndex < array_length(playerList); _playerIndex++)
 	{
 		var _player = playerList[_playerIndex];
@@ -21,63 +22,79 @@ function buffer_create_player_sync_accept ()
 		buffer_write(_b, buffer_u64, _player.steamID);
 		buffer_write(_b, buffer_u8, _player.ready);
 		buffer_write(_b, buffer_u8, _player.team);
-		buffer_write(_b, buffer_u8, _player.benchNum);
-		
-		for (var _creatureIndex = 0; _creatureIndex < 4; _creatureIndex++)
-		{
-			var _creature = _player.creature1;
-			switch _creatureIndex
-			{
-				case 0: break;
-				case 1: _creature = _player.creature2; break;
-				case 2: _creature = _player.creature3; break;
-				case 3: _creature = _player.creature4; break;
-				default: show_debug_message("Fifth creature not found..."); break;
-			}
-			
-			buffer_write(_b, buffer_u8, _creature.identifier);
-			buffer_write(_b, buffer_u16, _creature.xPos);
-			buffer_write(_b, buffer_u16, _creature.yPos);
-			buffer_write(_b, buffer_u32, _creature.moveTime);
-			buffer_write(_b, buffer_u8, _creature.passiveAbility1);
-			buffer_write(_b, buffer_u8, _creature.passiveAbility2);
-			buffer_write(_b, buffer_u8, _creature.passiveAbility3);
-			
-			var _activeAbility = _creature.activeAbility;
-			buffer_write(_b, buffer_u8, _activeAbility.identifier);
-			buffer_write(_b, buffer_u32, _activeAbility.restoreTime);
-			buffer_write(_b, buffer_u8, _activeAbility.uses);
-			
-			var _status = _creature.status;
-			buffer_write(_b, buffer_u8, _status.stunned.active);
-			buffer_write(_b, buffer_u32, _status.stunned.endTime);
-			buffer_write(_b, buffer_u8, _status.airborne.active);
-			buffer_write(_b, buffer_u32, _status.airborne.endTime);
-			buffer_write(_b, buffer_u8, _status.rooted.active);
-			buffer_write(_b, buffer_u32, _status.rooted.endTime);
-			buffer_write(_b, buffer_u8, _status.poisoned.active);
-			buffer_write(_b, buffer_u32, _status.poisoned.endTime);
-			buffer_write(_b, buffer_u8, _status.poisoned.damageTick);
-			
-			for (var _moveIndex = 0; _moveIndex < 4; _moveIndex++)
-			{
-				var _move = _creature.move1;
-				switch _moveIndex
-				{
-					case 0: break;
-					case 1: _move = _creature.move2; break;
-					case 2: _move = _creature.move3; break;
-					case 3: _move = _creature.move4; break;
-					default: show_debug_message("Fifth move not found..."); break;
-				}
-				
-				buffer_write(_b, buffer_u8, _move.identifier);
-				buffer_write(_b, buffer_u32, _move.restoreTime);
-			}
-		}
 	}
 	
 	return _b;
+}
+
+/// @self obj_server
+function buffer_create_combat_sync_accept ()
+{
+	var _b = buffer_create(20 + 8*get_bytes_per_creature_var(), buffer_fixed, 1);
+	
+	buffer_write(_b, buffer_u8, PacketType.CombatSyncAccept);
+	buffer_write(_b, buffer_u8, combatData.partySelectStage);
+	buffer_write(_b, buffer_u64, combatData.blueID);
+	buffer_write(_b, buffer_u64, combatData.redID);
+	buffer_write(_b, buffer_u8, combatData.blueBenchNum);
+	buffer_write(_b, buffer_u8, combatData.redBenchNum);
+	
+	for (var _creatureIndex = 0; _creatureIndex < 8; _creatureIndex++)
+	{
+		var _creature = undefined;
+		switch _creatureIndex
+		{
+			case 0: _creature = combatData.blueCreature1; break;
+			case 1: _creature = combatData.blueCreature2; break;
+			case 2: _creature = combatData.blueCreature3; break;
+			case 3: _creature = combatData.blueCreature4; break;
+			case 4: _creature = combatData.redCreature1; break;
+			case 5: _creature = combatData.redCreature2; break;
+			case 6: _creature = combatData.redCreature3; break;
+			case 7: _creature = combatData.redCreature4; break;
+			default: show_debug_message("Ninth creature not found..."); break;
+		}
+		
+		buffer_write(_b, buffer_u8, _creature.identifier);
+		buffer_write(_b, buffer_u16, _creature.xPos);
+		buffer_write(_b, buffer_u16, _creature.yPos);
+		buffer_write(_b, buffer_u32, _creature.moveTime);
+		buffer_write(_b, buffer_u8, _creature.passiveAbility1);
+		buffer_write(_b, buffer_u8, _creature.passiveAbility2);
+		buffer_write(_b, buffer_u8, _creature.passiveAbility3);
+		
+		var _activeAbility = _creature.activeAbility;
+		buffer_write(_b, buffer_u8, _activeAbility.identifier);
+		buffer_write(_b, buffer_u32, _activeAbility.restoreTime);
+		buffer_write(_b, buffer_u8, _activeAbility.uses);
+		
+		var _status = _creature.status;
+		buffer_write(_b, buffer_u8, _status.stunned.active);
+		buffer_write(_b, buffer_u32, _status.stunned.endTime);
+		buffer_write(_b, buffer_u8, _status.airborne.active);
+		buffer_write(_b, buffer_u32, _status.airborne.endTime);
+		buffer_write(_b, buffer_u8, _status.rooted.active);
+		buffer_write(_b, buffer_u32, _status.rooted.endTime);
+		buffer_write(_b, buffer_u8, _status.poisoned.active);
+		buffer_write(_b, buffer_u32, _status.poisoned.endTime);
+		buffer_write(_b, buffer_u8, _status.poisoned.damageTick);
+		
+		for (var _moveIndex = 0; _moveIndex < 4; _moveIndex++)
+		{
+			var _move = undefined;
+			switch _moveIndex
+			{
+				case 0: _move = _creature.move1; break;
+				case 1: _move = _creature.move2; break;
+				case 2: _move = _creature.move3; break;
+				case 3: _move = _creature.move4; break;
+				default: show_debug_message("Fifth move not found..."); break;
+			}
+			
+			buffer_write(_b, buffer_u8, _move.identifier);
+			buffer_write(_b, buffer_u32, _move.restoreTime);
+		}
+	}
 }
 
 /// @self obj_client

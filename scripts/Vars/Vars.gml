@@ -1,4 +1,4 @@
-/// @desc Returns player dictionary of buffer length 247
+/// @desc Returns player dictionary of buffer length 10
 function get_player_var ()
 {
 	var _playerVar =
@@ -7,11 +7,6 @@ function get_player_var ()
 		steamName : "Player",
 		ready : true, // 1
 		team : Team.None, // 1
-		benchNum : 0, // 1
-		creature1 : get_creature_var(),
-		creature2 : get_creature_var(),
-		creature3 : get_creature_var(),
-		creature4 : get_creature_var(),
 	}
 	return _playerVar;
 }
@@ -78,5 +73,11 @@ function get_active_ability_var ()
 
 function get_bytes_per_player_var ()
 {
-	return 247;
+	return 10;
+}
+
+
+function get_bytes_per_creature_var ()
+{
+	return 59;
 }
