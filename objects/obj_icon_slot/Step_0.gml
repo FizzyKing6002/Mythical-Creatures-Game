@@ -1,6 +1,6 @@
 if localHostObj == noone then exit;
 
-var _partySelectStage = localHostObj.combatData.partySelectStage
+var _partySelectStage = localHostObj.combatData.partySelectStage;
 
 if team == Team.None ||
 	( team == Team.Blue && !array_contains([0, 3, 4, 6], _partySelectStage) ) ||

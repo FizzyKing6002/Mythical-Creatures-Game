@@ -15,9 +15,12 @@ function handle_server_party_select_start_request ()
 {
 	if approve_server_party_select_start()
 	{
-		send_party_select_start_event();
-		room_goto(rm_party_select);
 		fill_ids_of_team_players();
+		
+		send_combat_sync_accept();
+		send_party_select_start_event();
+		
+		room_goto(rm_party_select);
 		return;
 	}
 	show_debug_message("Party select start denied.");
@@ -29,14 +32,13 @@ function handle_server_party_select_timeout_request ()
 	if approve_server_party_select_timeout()
 	{
 		var _creature = Creature.None;
-		show_debug_message(get_current_party_slot_empty())
 		if get_current_party_slot_empty() then _creature = pick_random_available_creature();
 		
+		send_combat_sync_accept();
 		send_party_select_timeout_event(_creature);
 		
 		if _creature != Creature.None then change_current_creature(_creature);
 		next_party_select_stage();
-		
 		return;
 	}
 	show_debug_message("Party select timeout denied.");
@@ -47,8 +49,10 @@ function handle_server_party_select_next_request ()
 {
 	if approve_server_party_select_next()
 	{
-		send_player_party_select_next_accept();
 		next_party_select_stage();
+		
+		send_combat_sync_accept();
+		send_player_party_select_next_accept();
 		return;
 	}
 	show_debug_message("Party select next denied.");

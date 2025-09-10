@@ -1,6 +1,11 @@
 if localHostObj == noone then exit;
 
-if self_get_current_party_slot_empty()
+var _partySelectStage = localHostObj.combatData.partySelectStage;
+
+if self_get_current_party_slot_empty() ||
+	team == Team.None ||
+	( team == Team.Blue && !array_contains([0, 3, 4, 6], _partySelectStage) ) ||
+	( team == Team.Red && !array_contains([1, 2, 5, 7], _partySelectStage) )
 {
 	image_index = 3;
 	exit;
