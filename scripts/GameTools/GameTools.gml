@@ -1,6 +1,7 @@
 /// @self obj_local_host
 function handle_combat_start ()
 {
+	return;
 	var _nonSpectators = get_ids_of_non_spectators();
 	combatData.player1ID = _nonSpectators[0];
 	combatData.player2ID = _nonSpectators[1];

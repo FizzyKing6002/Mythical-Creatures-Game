@@ -54,15 +54,14 @@ function handle_combat_sync_accept (_b)
 			default: show_debug_message("Ninth creature not accounted for..."); continue;
 		}
 		
-		var _identifierNum = buffer_read(_b, buffer_u8);
-		var _identifierBool = _identifierNum != 0;
+		var _identifier = buffer_read(_b, buffer_u8);
 		var _xPos = buffer_read(_b, buffer_u16);
 		var _yPos = buffer_read(_b, buffer_u16);
 		var _moveTime = buffer_read(_b, buffer_u32);
 		var _passiveAbility1 = buffer_read(_b, buffer_u8);
 		var _passiveAbility2 = buffer_read(_b, buffer_u8);
 		var _passiveAbility3 = buffer_read(_b, buffer_u8);
-		_creature.identifier = _identifierBool;
+		_creature.identifier = _identifier;
 		_creature.xPos = _xPos;
 		_creature.yPos = _yPos;
 		_creature.moveTime = _moveTime;
