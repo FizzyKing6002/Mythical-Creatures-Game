@@ -49,10 +49,10 @@ function handle_server_party_select_next_request ()
 {
 	if approve_server_party_select_next()
 	{
-		next_party_select_stage();
-		
 		send_combat_sync_accept();
 		send_player_party_select_next_accept();
+		
+		next_party_select_stage();
 		return;
 	}
 	show_debug_message("Party select next denied.");
