@@ -95,6 +95,8 @@ function buffer_create_combat_sync_accept ()
 			buffer_write(_b, buffer_u32, _move.restoreTime);
 		}
 	}
+	
+	return _b;
 }
 
 /// @self obj_client
