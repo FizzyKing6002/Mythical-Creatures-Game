@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"CombatDataTools",
+  "%Name":"CreatureMoves",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"CombatDataTools",
+  "name":"CreatureMoves",
   "parent":{
-    "name":"Tools",
-    "path":"folders/Scripts/Tools.yy",
+    "name":"Vars",
+    "path":"folders/Scripts/Vars.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

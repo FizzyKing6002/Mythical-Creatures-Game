@@ -1,4 +1,4 @@
-if localHostObj == noone then exit;
+if localHostObj == noone || startMS == -1 then exit;
 
 var _partySelectStage = localHostObj.combatData.partySelectStage;
 if _partySelectStage > completedSegments
@@ -8,13 +8,25 @@ if _partySelectStage > completedSegments
 }
 
 var _segmentTime = current_time - startMS;
-segmentProgress = clamp(_segmentTime / segmentDuration, 0, 1);
+if completedSegments == 8 then segmentProgress = clamp(_segmentTime / finalDuration, 0, 1);
+else segmentProgress = clamp(_segmentTime / segmentDuration, 0, 1);
 
-if instance_exists(obj_server) && _segmentTime > segmentDuration + lenienceDuration && completedSegments < 8
+if instance_exists(obj_server)
 {
-	localHostObj.localRequests.partySelectTimeout.request = true;
-	
-	completedSegments++;
-	segmentProgress = 0;
-	startMS = current_time;
+	if completedSegments < 8 && _segmentTime > segmentDuration + lenienceDuration
+	{
+		localHostObj.localRequests.partySelectTimeout.request = true;
+		
+		completedSegments++;
+		segmentProgress = 0;
+		startMS = current_time;
+		
+		exit;
+	}
+	if completedSegments == 8 && _segmentTime > finalDuration
+	{
+		localHostObj.localRequests.combatStart.request = true;
+		startMS = -1;
+		exit;
+	}
 }

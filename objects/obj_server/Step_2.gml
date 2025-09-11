@@ -27,11 +27,9 @@ if localRequests.partySelectCreature.request
 	handle_server_party_select_creature_request(localRequests.partySelectCreature.creature);
 	localRequests.partySelectCreature.request = false;
 }
-
-
-
-if combatData.partySelectStage == 8
+	
+if localRequests.combatStart.request
 {
-	alarm[1] = 300;
-	combatData.partySelectStage = 9;
+	handle_server_combat_start_request();
+	localRequests.combatStart.request = false;
 }

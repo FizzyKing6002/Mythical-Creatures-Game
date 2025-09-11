@@ -22,4 +22,9 @@ if localHostObj.combatData.partySelectStage == partySlot
 	image_index = 1;
 	exit;
 }
+if partySlot == 3 || partySlot == 7
+{
+	image_index = 2;
+	exit;
+}
 image_index = 0;

@@ -19,3 +19,8 @@ function select_action ()
 	localHostObj.localRequests.partySelectCreature.request = true;
 	localHostObj.localRequests.partySelectCreature.creature = creatureID;
 }
+
+function self_get_team_selecting ()
+{
+	return localHostObj.local_get_team_selecting()
+}

@@ -54,6 +54,46 @@ enum Creature // max length 256
 
 enum Move // max length 256
 {
+	Fireball,
+	None,
+}
+
+enum DeployMethod
+{
+	Point,
+	PointDirect,
+	PointRDirect,
+	Centre,
+	CentreDirect,
+	CentreRDirect,
+	RArea,
+	RAreaDirect,
+	RAreaRDirect,
+	None,
+}
+
+enum MoveShape
+{
+	Circle,
+	Square,
+	Sector,
+	Line,
+	None,
+}
+
+enum AreaGradient
+{
+	Distance,
+	Direction,
+	None,
+}
+
+enum StatusCondition
+{
+	Stunned,
+	Poisoned,
+	Slowed,
+	Knockback,
 	None,
 }
 

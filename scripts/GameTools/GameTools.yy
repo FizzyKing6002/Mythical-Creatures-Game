@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"GameTools",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Tools",
+    "path":"folders/Scripts/Tools.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

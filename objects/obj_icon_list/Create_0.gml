@@ -15,10 +15,10 @@ for (var _i = 0; _i < 8; _i++)
 		case 1: _xPos = 430; _yPos = 250; break;
 		case 2: _xPos = 550; _yPos = 250; break;
 		case 3: _xPos = 210; _yPos = 250; break;
-		case 4: _xPos = 90; _yPos = 310; break;
-		case 5: _xPos = 430; _yPos = 310; break;
-		case 6: _xPos = 210; _yPos = 310; break;
-		case 7: _xPos = 550; _yPos = 310; break;
+		case 4: _xPos = 80; _yPos = 310; break;
+		case 5: _xPos = 440; _yPos = 310; break;
+		case 6: _xPos = 200; _yPos = 310; break;
+		case 7: _xPos = 560; _yPos = 310; break;
 		default: show_debug_message("There should be no ninth party slot..."); continue;
 	}
 	

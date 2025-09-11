@@ -1,3 +1,8 @@
+global.bytes_per_player_var = 10;
+global.bytes_per_creature_var = 59;
+
+
+
 /// @desc Returns player dictionary of buffer length 10
 function get_player_var ()
 {
@@ -69,15 +74,4 @@ function get_active_ability_var ()
 		uses : 0, // 1
 	}
 	return _activeAbilityVar;
-}
-
-function get_bytes_per_player_var ()
-{
-	return 10;
-}
-
-
-function get_bytes_per_creature_var ()
-{
-	return 59;
 }

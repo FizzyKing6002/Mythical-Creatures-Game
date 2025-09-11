@@ -11,4 +11,5 @@ localRequests =
 	partySelectTimeout : { request : false, },
 	partySelectNext : { request : false, },
 	partySelectCreature : { request : false, creature : Creature.None, },
+	combatStart : { request : false, },
 }

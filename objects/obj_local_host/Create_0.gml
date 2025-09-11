@@ -14,8 +14,8 @@ combatData =
 	blueID : 0,
 	redID : 0,
 	
-	blueBenchNum : 0,
-	redBenchNum : 0,
+	blueBenchNum : 4,
+	redBenchNum : 4,
 	
 	blueCreature1 : get_creature_var(),
 	blueCreature2 : get_creature_var(),
@@ -29,27 +29,10 @@ combatData =
 
 
 
-function local_get_player_ready (_steamID)
-{
-	return get_player_ready(_steamID);
-}
-function local_get_all_players_ready ()
-{
-	return get_all_players_ready();
-}
-function local_get_team_full (_team)
-{
-	return get_team_full(_team);
-}
-function local_get_player_team (_steamID)
-{
-	return get_player_team(_steamID);
-}
-function local_get_num_non_spectators ()
-{
-	return get_num_non_spectators();
-}
-function local_get_current_party_slot_empty ()
-{
-	return get_current_party_slot_empty();
-}
+function local_get_player_ready (_steamID) { return get_player_ready(_steamID); }
+function local_get_all_players_ready () { return get_all_players_ready(); }
+function local_get_team_full (_team) { return get_team_full(_team); }
+function local_get_player_team (_steamID) { return get_player_team(_steamID); }
+function local_get_num_non_spectators () { return get_num_non_spectators(); }
+function local_get_current_party_slot_empty () { return get_current_party_slot_empty(); }
+function local_get_team_selecting () { return get_team_selecting(); }

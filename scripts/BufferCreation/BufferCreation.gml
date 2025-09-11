@@ -11,7 +11,7 @@ function buffer_create_player_sync_request ()
 /// @self obj_server
 function buffer_create_player_sync_accept ()
 {
-	var _b = buffer_create(1 + array_length(playerList)*get_bytes_per_player_var(), buffer_fixed, 1);
+	var _b = buffer_create(1 + array_length(playerList)*global.bytes_per_player_var, buffer_fixed, 1);
 	
 	buffer_write(_b, buffer_u8, PacketType.PlayerSyncAccept);
 	
@@ -30,7 +30,7 @@ function buffer_create_player_sync_accept ()
 /// @self obj_server
 function buffer_create_combat_sync_accept ()
 {
-	var _b = buffer_create(20 + 8*get_bytes_per_creature_var(), buffer_fixed, 1);
+	var _b = buffer_create(20 + 8*global.bytes_per_creature_var, buffer_fixed, 1);
 	
 	buffer_write(_b, buffer_u8, PacketType.CombatSyncAccept);
 	buffer_write(_b, buffer_u8, combatData.partySelectStage);

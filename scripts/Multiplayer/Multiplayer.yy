@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"Vars",
+  "%Name":"Multiplayer",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Vars",
+  "name":"Multiplayer",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Vars",
+    "path":"folders/Scripts/Vars.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -1,11 +1,12 @@
 if localHostObj == noone then exit;
 
 var _partySelectStage = localHostObj.combatData.partySelectStage;
+var _teamSelecting = self_get_team_selecting();
 
 if self_get_current_party_slot_empty() ||
 	team == Team.None ||
-	( team == Team.Blue && !array_contains([0, 3, 4, 6], _partySelectStage) ) ||
-	( team == Team.Red && !array_contains([1, 2, 5, 7], _partySelectStage) )
+	( team == Team.Blue && _teamSelecting != Team.Blue ) ||
+	( team == Team.Red && _teamSelecting != Team.Red )
 {
 	image_index = 3;
 	exit;

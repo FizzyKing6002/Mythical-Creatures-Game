@@ -24,3 +24,8 @@ function self_get_current_party_slot_empty ()
 {
 	return localHostObj.local_get_current_party_slot_empty();
 }
+
+function self_get_team_selecting ()
+{
+	return localHostObj.local_get_team_selecting()
+}

@@ -18,14 +18,36 @@ function fill_ids_of_team_players ()
 }
 
 /// @self obj_local_host
+function get_team_selecting ()
+{
+	var _partySelectStage = combatData.partySelectStage;
+	
+	if _partySelectStage == 0 ||
+		_partySelectStage == 3 ||
+		_partySelectStage == 4 ||
+		_partySelectStage == 6
+	{
+		return Team.Blue;
+	}
+	if _partySelectStage == 1 ||
+		_partySelectStage == 2 ||
+		_partySelectStage == 5 ||
+		_partySelectStage == 7
+	{
+		return Team.Red;
+	}
+	return Team.None;
+}
+
+/// @self obj_local_host
 function player_currently_selecting (_playerID)
 {
 	var _team = get_player_team(_playerID);
 	switch _team
 	{
 		case Team.None: return false;
-		case Team.Blue: if !array_contains([0, 3, 4, 6], combatData.partySelectStage) then return false; break;
-		case Team.Red: if !array_contains([1, 2, 5, 7], combatData.partySelectStage) then return false; break;
+		case Team.Blue: if get_team_selecting() != Team.Blue then return false; break;
+		case Team.Red: if get_team_selecting() != Team.Red then return false; break;
 		default: show_debug_message("Team not accounted for..."); return false;
 	}
 	return true;
@@ -106,5 +128,16 @@ function change_current_creature (_creature)
 		case 6: combatData.blueCreature4.identifier = _creature; break;
 		case 7: combatData.redCreature4.identifier = _creature; break;
 		default: show_debug_message("Ninth party select stage not accounted for..."); break;
+	}
+}
+
+/// @self obj_local_host
+function get_creature_initial_data (_creature)
+{
+	switch _creature
+	{
+		case Creature.None: show_debug_message("No creature to fill data of..."); return;
+		case Creature.Salamander: break;
+		default: show_debug_message("Creature not accounted for..."); return;
 	}
 }

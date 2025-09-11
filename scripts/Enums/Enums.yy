@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"Enums",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Vars",
+    "path":"folders/Scripts/Vars.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

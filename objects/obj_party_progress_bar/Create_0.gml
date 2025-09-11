@@ -1,6 +1,7 @@
 completedSegments = 0;
 segmentProgress = 0;
 segmentDuration = 10000;
+finalDuration = 5000;
 lenienceDuration = 2000;
 
 startMS = current_time;
