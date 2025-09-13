@@ -30,10 +30,12 @@ function buffer_create_player_sync_accept ()
 /// @self obj_server
 function buffer_create_combat_sync_accept ()
 {
-	var _b = buffer_create(20 + 8*global.bytes_per_creature_var, buffer_fixed, 1);
+	var _b = buffer_create(25 + 8*global.bytes_per_creature_var, buffer_fixed, 1);
 	
 	buffer_write(_b, buffer_u8, PacketType.CombatSyncAccept);
 	buffer_write(_b, buffer_u8, combatData.partySelectStage);
+	buffer_write(_b, buffer_u8, combatData.map);
+	buffer_write(_b, buffer_u32, combatData.time);
 	buffer_write(_b, buffer_u64, combatData.blueID);
 	buffer_write(_b, buffer_u64, combatData.redID);
 	buffer_write(_b, buffer_u8, combatData.blueBenchNum);
@@ -58,6 +60,7 @@ function buffer_create_combat_sync_accept ()
 		buffer_write(_b, buffer_u8, _creature.identifier);
 		buffer_write(_b, buffer_u16, _creature.xPos);
 		buffer_write(_b, buffer_u16, _creature.yPos);
+		buffer_write(_b, buffer_u16, _creature.hp);
 		buffer_write(_b, buffer_u32, _creature.moveTime);
 		buffer_write(_b, buffer_u8, _creature.passiveAbility1);
 		buffer_write(_b, buffer_u8, _creature.passiveAbility2);

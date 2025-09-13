@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"CombatDataTools",
+  "%Name":"Init",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"CombatDataTools",
+  "name":"Init",
   "parent":{
-    "name":"Tools",
-    "path":"folders/Scripts/Tools.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -1,11 +1,7 @@
-textColor = c_white;
-text = "Team Select";
+firstStep = true;
 
-partySlot = CombatCreature.None;
-displaySprite = undefined;
-
-image_xscale = 1.5;
-image_yscale = 0.75;
+creatureNum = 0;
+creature = undefined;
 
 localHostObj = noone;
 if instance_exists(obj_server) then localHostObj = global.server;

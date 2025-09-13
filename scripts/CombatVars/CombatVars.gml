@@ -1,0 +1,1 @@
+global.combatCreatureInitialDelay = 200;

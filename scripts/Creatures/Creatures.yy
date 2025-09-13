@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"GameTools",
+  "%Name":"Creatures",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"GameTools",
+  "name":"Creatures",
   "parent":{
-    "name":"Tools",
-    "path":"folders/Scripts/Tools.yy",
+    "name":"Vars",
+    "path":"folders/Scripts/Vars.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

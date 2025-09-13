@@ -22,17 +22,17 @@ function get_team_selecting ()
 {
 	var _partySelectStage = combatData.partySelectStage;
 	
-	if _partySelectStage == 0 ||
-		_partySelectStage == 3 ||
-		_partySelectStage == 4 ||
-		_partySelectStage == 6
+	if _partySelectStage == PartySelectStage.Blue1 ||
+		_partySelectStage == PartySelectStage.Blue2 ||
+		_partySelectStage == PartySelectStage.Blue3 ||
+		_partySelectStage == PartySelectStage.Blue4
 	{
 		return Team.Blue;
 	}
-	if _partySelectStage == 1 ||
-		_partySelectStage == 2 ||
-		_partySelectStage == 5 ||
-		_partySelectStage == 7
+	if _partySelectStage == PartySelectStage.Red1 ||
+		_partySelectStage == PartySelectStage.Red2 ||
+		_partySelectStage == PartySelectStage.Red3 ||
+		_partySelectStage == PartySelectStage.Red4
 	{
 		return Team.Red;
 	}
@@ -82,14 +82,15 @@ function get_current_party_slot_empty ()
 {
 	switch combatData.partySelectStage
 	{
-		case 0: return combatData.blueCreature1.identifier == Creature.None;
-		case 1: return combatData.redCreature1.identifier == Creature.None;
-		case 2: return combatData.redCreature2.identifier == Creature.None;
-		case 3: return combatData.blueCreature2.identifier == Creature.None;
-		case 4: return combatData.blueCreature3.identifier == Creature.None;
-		case 5: return combatData.redCreature3.identifier == Creature.None;
-		case 6: return combatData.blueCreature4.identifier == Creature.None;
-		case 7: return combatData.redCreature4.identifier == Creature.None;
+		case PartySelectStage.Blue1: return combatData.blueCreature1.identifier == Creature.None;
+		case PartySelectStage.Red1: return combatData.redCreature1.identifier == Creature.None;
+		case PartySelectStage.Red2: return combatData.redCreature2.identifier == Creature.None;
+		case PartySelectStage.Blue2: return combatData.blueCreature2.identifier == Creature.None;
+		case PartySelectStage.Blue3: return combatData.blueCreature3.identifier == Creature.None;
+		case PartySelectStage.Red3: return combatData.redCreature3.identifier == Creature.None;
+		case PartySelectStage.Blue4: return combatData.blueCreature4.identifier == Creature.None;
+		case PartySelectStage.Red4: return combatData.redCreature4.identifier == Creature.None;
+		case PartySelectStage.Preparation: return false;
 		default: show_debug_message("Ninth party select stage not accounted for..."); return false;
 	}
 }
@@ -128,16 +129,5 @@ function change_current_creature (_creature)
 		case 6: combatData.blueCreature4.identifier = _creature; break;
 		case 7: combatData.redCreature4.identifier = _creature; break;
 		default: show_debug_message("Ninth party select stage not accounted for..."); break;
-	}
-}
-
-/// @self obj_local_host
-function get_creature_initial_data (_creature)
-{
-	switch _creature
-	{
-		case Creature.None: show_debug_message("No creature to fill data of..."); return;
-		case Creature.Salamander: break;
-		default: show_debug_message("Creature not accounted for..."); return;
 	}
 }

@@ -28,11 +28,15 @@ function handle_player_sync_accept (_b)
 function handle_combat_sync_accept (_b)
 {
 	var _partySelectStage = buffer_read(_b, buffer_u8);
+	var _map = buffer_read(_b, buffer_u8);
+	var _time = buffer_read(_b, buffer_u32);
 	var _blueID = buffer_read(_b, buffer_u64);
 	var _redID = buffer_read(_b, buffer_u64);
 	var _blueBenchNum = buffer_read(_b, buffer_u8);
 	var _redBenchNum = buffer_read(_b, buffer_u8);
 	combatData.partySelectStage = _partySelectStage;
+	combatData.map = _map;
+	combatData.time = _time;
 	combatData.blueID = _blueID;
 	combatData.redID = _redID;
 	combatData.blueBenchNum = _blueBenchNum;
@@ -57,6 +61,7 @@ function handle_combat_sync_accept (_b)
 		var _identifier = buffer_read(_b, buffer_u8);
 		var _xPos = buffer_read(_b, buffer_u16);
 		var _yPos = buffer_read(_b, buffer_u16);
+		var _hp = buffer_read(_b, buffer_u16);
 		var _moveTime = buffer_read(_b, buffer_u32);
 		var _passiveAbility1 = buffer_read(_b, buffer_u8);
 		var _passiveAbility2 = buffer_read(_b, buffer_u8);
@@ -64,6 +69,7 @@ function handle_combat_sync_accept (_b)
 		_creature.identifier = _identifier;
 		_creature.xPos = _xPos;
 		_creature.yPos = _yPos;
+		_creature.hp = _hp;
 		_creature.moveTime = _moveTime;
 		_creature.passiveAbility1 = _passiveAbility1;
 		_creature.passiveAbility2 = _passiveAbility2;

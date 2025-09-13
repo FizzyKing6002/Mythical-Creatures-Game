@@ -10,6 +10,9 @@ playerList[0].steamName = steamName;
 combatData =
 {
 	partySelectStage : 0,
+	map : Map.Default,
+	time : 0,
+	creatureTurn : CombatCreature.None,
 	
 	blueID : 0,
 	redID : 0,

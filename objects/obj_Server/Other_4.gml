@@ -7,6 +7,6 @@ if room == rm_lobby
 if room == rm_combat
 {
 	handle_combat_start();
-	alarm[0] = 500;
+	send_combat_sync_accept();
 	exit;
 }

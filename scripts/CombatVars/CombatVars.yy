@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CombatVars",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CombatVars",
+  "parent":{
+    "name":"Vars",
+    "path":"folders/Scripts/Vars.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

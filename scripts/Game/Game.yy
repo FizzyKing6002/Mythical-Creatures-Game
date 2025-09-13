@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"PlayerListTools",
+  "%Name":"Game",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"PlayerListTools",
+  "name":"Game",
   "parent":{
     "name":"Tools",
     "path":"folders/Scripts/Tools.yy",

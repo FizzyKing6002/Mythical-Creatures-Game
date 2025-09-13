@@ -3,14 +3,14 @@ if localHostObj == noone then exit;
 var _creatureID = Creature.None;
 switch partySlot
 {
-	case 0: _creatureID = localHostObj.combatData.blueCreature1.identifier; break;
-	case 1: _creatureID = localHostObj.combatData.redCreature1.identifier; break;
-	case 2: _creatureID = localHostObj.combatData.redCreature2.identifier; break;
-	case 3: _creatureID = localHostObj.combatData.blueCreature2.identifier; break;
-	case 4: _creatureID = localHostObj.combatData.blueCreature3.identifier; break;
-	case 5: _creatureID = localHostObj.combatData.redCreature3.identifier; break;
-	case 6: _creatureID = localHostObj.combatData.blueCreature4.identifier; break;
-	case 7: _creatureID = localHostObj.combatData.redCreature4.identifier; break;
+	case CombatCreature.Blue1: _creatureID = localHostObj.combatData.blueCreature1.identifier; break;
+	case CombatCreature.Blue2: _creatureID = localHostObj.combatData.blueCreature2.identifier; break;
+	case CombatCreature.Blue3: _creatureID = localHostObj.combatData.blueCreature3.identifier; break;
+	case CombatCreature.Blue4: _creatureID = localHostObj.combatData.blueCreature4.identifier; break;
+	case CombatCreature.Red1: _creatureID = localHostObj.combatData.redCreature1.identifier; break;
+	case CombatCreature.Red2: _creatureID = localHostObj.combatData.redCreature2.identifier; break;
+	case CombatCreature.Red3: _creatureID = localHostObj.combatData.redCreature3.identifier; break;
+	case CombatCreature.Red4: _creatureID = localHostObj.combatData.redCreature4.identifier; break;
 	default: show_debug_message("Team slot out of range..."); break;
 }
 
@@ -22,7 +22,7 @@ if localHostObj.combatData.partySelectStage == partySlot
 	image_index = 1;
 	exit;
 }
-if partySlot == 3 || partySlot == 7
+if partySlot == CombatCreature.Blue4 || partySlot == CombatCreature.Red4
 {
 	image_index = 2;
 	exit;

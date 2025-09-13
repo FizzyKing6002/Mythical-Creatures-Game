@@ -1,5 +1,5 @@
 global.bytes_per_player_var = 10;
-global.bytes_per_creature_var = 59;
+global.bytes_per_creature_var = 61;
 
 
 
@@ -12,11 +12,11 @@ function get_player_var ()
 		steamName : "Player",
 		ready : true, // 1
 		team : Team.None, // 1
-	}
+	};
 	return _playerVar;
 }
 
-/// @desc Returns creature dictionary of buffer length 59
+/// @desc Returns creature dictionary of buffer length 61
 function get_creature_var ()
 {
 	var _creatureVar =
@@ -26,17 +26,18 @@ function get_creature_var ()
 		iconInst : undefined,
 		xPos : 0, // 2
 		yPos : 0, // 2
+		hp : 0, // 2
 		moveTime : 0, // 4
-		passiveAbility1 : PassiveAbility.None, // 1
-		passiveAbility2 : PassiveAbility.None, // 1
-		passiveAbility3 : PassiveAbility.None, // 1
-		activeAbility : get_active_ability_var(),
 		status : get_status_var(),
 		move1 : get_move_var(),
 		move2 : get_move_var(),
 		move3 : get_move_var(),
 		move4 : get_move_var(),
-	}
+		passiveAbility1 : PassiveAbility.None, // 1
+		passiveAbility2 : PassiveAbility.None, // 1
+		passiveAbility3 : PassiveAbility.None, // 1
+		activeAbility : get_active_ability_var(),
+	};
 	return _creatureVar;
 }
 
@@ -49,7 +50,7 @@ function get_status_var ()
 		airborne : { active : false, endTime : 0, }, // 1+4
 		rooted : { active : false, endTime : 0, }, // 1+4
 		poisoned : { active : false, endTime : 0, damageTick : 0, }, // 1+4+1
-	}
+	};
 	return _statusVar;
 }
 
@@ -60,7 +61,7 @@ function get_move_var ()
 	{
 		identifier : Move.None, // 1
 		restoreTime : 0, // 4
-	}
+	};
 	return _moveVar;
 }
 
@@ -72,6 +73,6 @@ function get_active_ability_var ()
 		identifier : ActiveAbility.None, // 1
 		restoreTime : 0, // 4
 		uses : 0, // 1
-	}
+	};
 	return _activeAbilityVar;
 }

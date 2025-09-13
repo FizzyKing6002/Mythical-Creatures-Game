@@ -30,10 +30,46 @@ enum LocalHost
 	None,
 }
 
+enum PartySelectStage
+{
+	Blue1,
+	Red1,
+	Red2,
+	Blue2,
+	Blue3,
+	Red3,
+	Blue4,
+	Red4,
+	Preparation,
+	
+	None,
+}
+
+enum Map
+{
+	Default,
+	
+	None,
+}
+
 enum Team // max length 256
 {
 	Blue,
 	Red,
+	
+	None,
+}
+
+enum CombatCreature // max length 256
+{
+	Blue1,
+	Blue2,
+	Blue3,
+	Blue4,
+	Red1,
+	Red2,
+	Red3,
+	Red4,
 	
 	None,
 }
@@ -55,6 +91,7 @@ enum Creature // max length 256
 enum Move // max length 256
 {
 	Fireball,
+	
 	None,
 }
 
@@ -69,6 +106,7 @@ enum DeployMethod
 	RArea,
 	RAreaDirect,
 	RAreaRDirect,
+	
 	None,
 }
 
@@ -78,6 +116,7 @@ enum MoveShape
 	Square,
 	Sector,
 	Line,
+	
 	None,
 }
 
@@ -85,6 +124,7 @@ enum AreaGradient
 {
 	Distance,
 	Direction,
+	
 	None,
 }
 
@@ -94,6 +134,7 @@ enum StatusCondition
 	Poisoned,
 	Slowed,
 	Knockback,
+	
 	None,
 }
 
