@@ -73,7 +73,7 @@ function fill_creatures_init_values ()
 		_creatureVar.passiveAbility1 = _creatureData.passiveAbilities[0];
 		_creatureVar.passiveAbility2 = _creatureData.passiveAbilities[1];
 		_creatureVar.passiveAbility3 = _creatureData.passiveAbilities[2];
-		_creatureVar.activeAbility = _creatureData.activeAbility;
+		_creatureVar.activeAbility.identifier = _creatureData.activeAbility;
 	}
 }
 
