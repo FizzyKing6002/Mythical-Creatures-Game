@@ -51,8 +51,8 @@ function init_creatures ()
 	
 	global.elf = get_creature_template();
 	global.elf.speed = 50;
-	array_push(global.griffin.moves, Move.None, Move.None, Move.None, Move.None);
-	array_push(global.griffin.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
+	array_push(global.elf.moves, Move.None, Move.None, Move.None, Move.None);
+	array_push(global.elf.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 	
 	global.dwarf = get_creature_template();
 	global.dwarf.speed = 30;
