@@ -5,20 +5,20 @@ instLayer = layer_get_id("Instances");
 
 
 
-for (var _i = 0; _i < CombatCreature.None; _i++)
+for (var _i = 0; _i < PartySelectStage.Preparation; _i++)
 {
 	var _xPos = 0;
 	var _yPos = 0;
 	switch _i
 	{
-		case CombatCreature.Blue1: _xPos = 90; _yPos = 250; break;
-		case CombatCreature.Blue2: _xPos = 210; _yPos = 250; break;
-		case CombatCreature.Blue3: _xPos = 80; _yPos = 310; break;
-		case CombatCreature.Blue4: _xPos = 200; _yPos = 310; break;
-		case CombatCreature.Red1: _xPos = 430; _yPos = 250; break;
-		case CombatCreature.Red2: _xPos = 550; _yPos = 250; break;
-		case CombatCreature.Red3: _xPos = 440; _yPos = 310; break;
-		case CombatCreature.Red4: _xPos = 560; _yPos = 310; break;
+		case PartySelectStage.Blue1: _xPos = 90; _yPos = 250; break;
+		case PartySelectStage.Blue2: _xPos = 210; _yPos = 250; break;
+		case PartySelectStage.Blue3: _xPos = 80; _yPos = 310; break;
+		case PartySelectStage.Blue4: _xPos = 200; _yPos = 310; break;
+		case PartySelectStage.Red1: _xPos = 430; _yPos = 250; break;
+		case PartySelectStage.Red2: _xPos = 550; _yPos = 250; break;
+		case PartySelectStage.Red3: _xPos = 440; _yPos = 310; break;
+		case PartySelectStage.Red4: _xPos = 560; _yPos = 310; break;
 		default: show_debug_message("There should be no ninth party slot..."); continue;
 	}
 	

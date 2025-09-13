@@ -1,7 +1,7 @@
 textColor = c_white;
 text = "Team Select";
 
-partySlot = CombatCreature.None;
+partySlot = PartySelectStage.None;
 displaySprite = undefined;
 
 image_xscale = 1.5;
