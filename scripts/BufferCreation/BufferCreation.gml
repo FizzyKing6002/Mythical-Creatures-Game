@@ -58,8 +58,8 @@ function buffer_create_combat_sync_accept ()
 		}
 		
 		buffer_write(_b, buffer_u8, _creature.identifier);
-		buffer_write(_b, buffer_u16, _creature.xPos);
-		buffer_write(_b, buffer_u16, _creature.yPos);
+		buffer_write(_b, buffer_u16, _creature.X);
+		buffer_write(_b, buffer_u16, _creature.Y);
 		buffer_write(_b, buffer_u16, _creature.hp);
 		buffer_write(_b, buffer_u32, _creature.moveTime);
 		buffer_write(_b, buffer_u8, _creature.passiveAbility1);

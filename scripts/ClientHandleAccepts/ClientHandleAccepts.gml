@@ -59,16 +59,16 @@ function handle_combat_sync_accept (_b)
 		}
 		
 		var _identifier = buffer_read(_b, buffer_u8);
-		var _xPos = buffer_read(_b, buffer_u16);
-		var _yPos = buffer_read(_b, buffer_u16);
+		var _X = buffer_read(_b, buffer_u16);
+		var _Y = buffer_read(_b, buffer_u16);
 		var _hp = buffer_read(_b, buffer_u16);
 		var _moveTime = buffer_read(_b, buffer_u32);
 		var _passiveAbility1 = buffer_read(_b, buffer_u8);
 		var _passiveAbility2 = buffer_read(_b, buffer_u8);
 		var _passiveAbility3 = buffer_read(_b, buffer_u8);
 		_creature.identifier = _identifier;
-		_creature.xPos = _xPos;
-		_creature.yPos = _yPos;
+		_creature.X = _X;
+		_creature.Y = _Y;
 		_creature.hp = _hp;
 		_creature.moveTime = _moveTime;
 		_creature.passiveAbility1 = _passiveAbility1;
