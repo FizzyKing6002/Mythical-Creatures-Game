@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"CombatData",
+  "%Name":"CombatDataTools",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"CombatData",
+  "name":"CombatDataTools",
   "parent":{
     "name":"Tools",
     "path":"folders/Scripts/Tools.yy",

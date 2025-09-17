@@ -38,8 +38,8 @@ function buffer_create_combat_sync_accept ()
 	buffer_write(_b, buffer_u32, combatData.time);
 	buffer_write(_b, buffer_u64, combatData.blueID);
 	buffer_write(_b, buffer_u64, combatData.redID);
-	buffer_write(_b, buffer_u8, combatData.blueBenchNum);
-	buffer_write(_b, buffer_u8, combatData.redBenchNum);
+	buffer_write(_b, buffer_u8, combatData.blueBenchCreature);
+	buffer_write(_b, buffer_u8, combatData.redBenchCreature);
 	
 	for (var _creatureIndex = 0; _creatureIndex < 8; _creatureIndex++)
 	{

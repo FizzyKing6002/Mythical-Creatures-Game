@@ -1,6 +1,4 @@
-firstStep = true;
-
-creatureNum = 0;
+combatCreature = CombatCreature.None;
 creature = undefined;
 
 localHostObj = noone;

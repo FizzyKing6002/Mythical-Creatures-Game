@@ -1,5 +1,7 @@
-combatCreature = CombatCreature.None;
-creature = undefined;
+firstStep = true;
+
+moveID = -1;
+move = undefined;
 
 localHostObj = noone;
 if instance_exists(obj_server) then localHostObj = global.server;

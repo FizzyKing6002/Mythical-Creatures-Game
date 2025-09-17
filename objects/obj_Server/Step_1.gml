@@ -33,3 +33,19 @@ while (steam_net_packet_receive())
 		break;
 	}
 }
+
+
+
+if room != rm_combat or combatData.creatureTurn != CombatCreature.None then exit;
+
+var _creatureTurnData = get_creature_turn_data();
+
+if array_length(_creatureTurnData) == 0
+{
+	combatData.timeDiff = current_time - combatData.actualTime;
+	combatData.combatTime += combatData.timeDiff;
+	combatData.actualTime = current_time;
+	
+	evaluate_moves();
+	exit;
+}

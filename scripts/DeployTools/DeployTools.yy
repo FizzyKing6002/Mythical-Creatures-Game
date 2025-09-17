@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"Game",
+  "%Name":"DeployTools",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Game",
+  "name":"DeployTools",
   "parent":{
     "name":"Tools",
     "path":"folders/Scripts/Tools.yy",

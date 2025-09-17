@@ -3,7 +3,7 @@ inbuf = buffer_create(1, buffer_grow, 1);
 steamID = steam_get_user_steam_id();
 steamName = steam_get_persona_name();
 
-playerList = [get_player_var()];
+playerList = [get_lobby_player_var()];
 playerList[0].steamID = steamID;
 playerList[0].steamName = steamName;
 
@@ -11,23 +11,30 @@ combatData =
 {
 	partySelectStage : 0,
 	map : Map.Default,
-	time : 0,
+	combatTime : 0,
+	actualTime : 0,
+	timeDiff : 0,
 	creatureTurn : CombatCreature.None,
 	
 	blueID : 0,
 	redID : 0,
 	
-	blueBenchNum : 4,
-	redBenchNum : 4,
+	blueBenchCreature : CombatCreature.Blue4,
+	redBenchCreature : CombatCreature.Red4,
 	
-	blueCreature1 : get_creature_var(),
-	blueCreature2 : get_creature_var(),
-	blueCreature3 : get_creature_var(),
-	blueCreature4 : get_creature_var(),
-	redCreature1 : get_creature_var(),
-	redCreature2 : get_creature_var(),
-	redCreature3 : get_creature_var(),
-	redCreature4 : get_creature_var(),
+	blueCreature1 : get_combat_creature_var(),
+	blueCreature2 : get_combat_creature_var(),
+	blueCreature3 : get_combat_creature_var(),
+	blueCreature4 : get_combat_creature_var(),
+	redCreature1 : get_combat_creature_var(),
+	redCreature2 : get_combat_creature_var(),
+	redCreature3 : get_combat_creature_var(),
+	redCreature4 : get_combat_creature_var(),
+	
+	nextMoveID : 0,
+	moves : [],
+	events : [],
+	listeners : [],
 }
 
 

@@ -131,3 +131,33 @@ function change_current_creature (_creature)
 		default: show_debug_message("Ninth party select stage not accounted for..."); break;
 	}
 }
+
+/// @self obj_local_host
+function get_combat_creature_from_identifier (_combatCreature)
+{
+	switch _combatCreature
+	{
+		case CombatCreature.Blue1: return combatData.blueCreature1;
+		case CombatCreature.Blue2: return combatData.blueCreature2;
+		case CombatCreature.Blue3: return combatData.blueCreature3;
+		case CombatCreature.Blue4: return combatData.blueCreature4;
+		case CombatCreature.Red1: return combatData.redCreature1;
+		case CombatCreature.Red2: return combatData.redCreature2;
+		case CombatCreature.Red3: return combatData.redCreature3;
+		case CombatCreature.Red4: return combatData.redCreature4;
+		default: show_debug_message("Creature not accounted for..."); return;
+	}
+}
+
+/// @self obj_local_host
+function get_combat_move_from_id (_moveID)
+{
+	var _moves = combatData.moves;
+	
+	for (var _i = 0; _i < array_length(_moves); _i++)
+	{
+		if _moves[_i].ID == _moveID then return _moves[_i];
+	}
+	show_debug_message("Combat move not found...");
+	return undefined;
+}

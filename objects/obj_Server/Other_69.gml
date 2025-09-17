@@ -18,7 +18,7 @@ switch async_load[?"event_type"]
 				make_player_ready(_playerID, false);
 			}
 			
-			var _playerVar = get_player_var();
+			var _playerVar = get_lobby_player_var();
 			_playerVar.steamID = _fromID;
 			_playerVar.steamName = _fromName;
 			

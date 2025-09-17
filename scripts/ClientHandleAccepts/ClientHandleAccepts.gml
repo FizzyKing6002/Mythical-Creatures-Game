@@ -8,7 +8,7 @@ function handle_player_sync_accept (_b)
 	
 	for (var _playerIndex = 0; _playerIndex < _num_players; _playerIndex++)
 	{
-		var _player = get_player_var();
+		var _player = get_lobby_player_var();
 		
 		var _steamID = buffer_read(_b, buffer_u64);
 		var _steamName = steam_get_user_persona_name_sync(_steamID);
@@ -32,15 +32,15 @@ function handle_combat_sync_accept (_b)
 	var _time = buffer_read(_b, buffer_u32);
 	var _blueID = buffer_read(_b, buffer_u64);
 	var _redID = buffer_read(_b, buffer_u64);
-	var _blueBenchNum = buffer_read(_b, buffer_u8);
-	var _redBenchNum = buffer_read(_b, buffer_u8);
+	var _blueBenchCreature = buffer_read(_b, buffer_u8);
+	var _redBenchCreature = buffer_read(_b, buffer_u8);
 	combatData.partySelectStage = _partySelectStage;
 	combatData.map = _map;
 	combatData.time = _time;
 	combatData.blueID = _blueID;
 	combatData.redID = _redID;
-	combatData.blueBenchNum = _blueBenchNum;
-	combatData.redBenchNum = _redBenchNum;
+	combatData.blueBenchCreature = _blueBenchCreature;
+	combatData.redBenchCreature = _redBenchCreature;
 	
 	for (var _creatureIndex = 0; _creatureIndex < 8; _creatureIndex++)
 	{

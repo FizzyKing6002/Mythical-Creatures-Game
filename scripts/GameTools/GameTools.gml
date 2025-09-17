@@ -30,6 +30,15 @@ function get_icon_sprite_by_creature (_identifier)
 	}
 }
 
+function get_move_sprite_by_identifier (_identifier)
+{
+	switch _identifier
+	{
+		case Move.Fireball: return spr_fireball;
+		default: show_debug_message("No sprite for unknown move..."); return spr_missing_16;
+	}
+}
+
 function get_creature_data (_identifier)
 {
 	switch _identifier
