@@ -29,14 +29,14 @@ function handle_combat_sync_accept (_b)
 {
 	var _partySelectStage = buffer_read(_b, buffer_u8);
 	var _map = buffer_read(_b, buffer_u8);
-	var _time = buffer_read(_b, buffer_u32);
+	var _combatTime = buffer_read(_b, buffer_u32);
 	var _blueID = buffer_read(_b, buffer_u64);
 	var _redID = buffer_read(_b, buffer_u64);
 	var _blueBenchCreature = buffer_read(_b, buffer_u8);
 	var _redBenchCreature = buffer_read(_b, buffer_u8);
 	combatData.partySelectStage = _partySelectStage;
 	combatData.map = _map;
-	combatData.time = _time;
+	combatData.combatTime = _combatTime;
 	combatData.blueID = _blueID;
 	combatData.redID = _redID;
 	combatData.blueBenchCreature = _blueBenchCreature;

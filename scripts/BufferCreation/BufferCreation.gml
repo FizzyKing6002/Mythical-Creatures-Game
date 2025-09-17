@@ -35,7 +35,7 @@ function buffer_create_combat_sync_accept ()
 	buffer_write(_b, buffer_u8, PacketType.CombatSyncAccept);
 	buffer_write(_b, buffer_u8, combatData.partySelectStage);
 	buffer_write(_b, buffer_u8, combatData.map);
-	buffer_write(_b, buffer_u32, combatData.time);
+	buffer_write(_b, buffer_u32, combatData.combatTime);
 	buffer_write(_b, buffer_u64, combatData.blueID);
 	buffer_write(_b, buffer_u64, combatData.redID);
 	buffer_write(_b, buffer_u8, combatData.blueBenchCreature);
