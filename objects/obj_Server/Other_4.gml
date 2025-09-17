@@ -9,7 +9,7 @@ if room == rm_combat
 	handle_combat_start();
 	send_combat_sync_accept();
 	
-	var _deployData = get_deploy_data_by_method(DeployMethod.CentreDirect, [320, 180], CombatCreature.Blue1, -1);
+	var _deployData = get_deploy_data_by_method(DeployMethod.CentreDirect, [{ X:320, Y:180 }], CombatCreature.Blue1, -1);
 	create_combat_move(_deployData, Move.Fireball, CombatCreature.Blue1, -1);
 	
 	exit;
