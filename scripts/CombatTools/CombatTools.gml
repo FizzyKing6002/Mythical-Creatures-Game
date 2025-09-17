@@ -4,6 +4,7 @@ function handle_combat_start ()
 	fill_spawn_coords_by_map(combatData.map);
 	fill_creatures_init_values();
 	spawn_creatures();
+	combatData.actualTime = current_time;
 }
 
 /// @self obj_local_host

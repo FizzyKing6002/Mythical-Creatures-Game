@@ -47,7 +47,9 @@ function handle_player_party_select_next_request (_senderID, _b)
 {
 	if approve_player_party_select_next(_senderID)
 	{
+		send_combat_sync_accept();
 		send_player_party_select_next_accept();
+		
 		next_party_select_stage();
 		return;
 	}
