@@ -122,6 +122,9 @@ function create_combat_move (_deployData, _moveIdentifier, _creatorCreature, _cr
 	_moveInst.sprite_index = _moveSprite;
 	_moveInst.image_xscale = _data.size;
 	_moveInst.image_yscale = _data.size;
+	_moveInst.move = _combatMove;
 	
 	_combatMove.inst = _moveInst;
+	
+	array_push(combatData.moves, _combatMove);
 }

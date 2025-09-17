@@ -1,6 +1,3 @@
-firstStep = true;
-
-moveID = -1;
 move = undefined;
 
 localHostObj = noone;
