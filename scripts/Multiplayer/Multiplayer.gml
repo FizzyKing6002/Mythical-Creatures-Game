@@ -85,10 +85,22 @@ function get_combat_move_var ()
 		ID : 0,
 		creatorCreature : CombatCreature.None,
 		creatorMoveID : 0,
+		creationTime : 0,
 		X : 0,
 		Y : 0,
 		direction : 0,
 		inst : noone,
 	};
 	return _move;
+}
+
+function get_event_var ()
+{
+	var _event =
+	{
+		identifier : Event.None,
+		time : 0,
+		priority : 0,
+		details : undefined,
+	}
 }

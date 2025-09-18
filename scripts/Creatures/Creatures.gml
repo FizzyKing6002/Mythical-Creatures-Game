@@ -30,37 +30,37 @@ function init_creatures ()
 	array_push(global.salamander.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 	
 	global.griffin = get_creature_template();
-	global.griffin.speed = 130;
+	global.griffin.speed = 200;
 	array_push(global.griffin.moves, Move.None, Move.None, Move.None, Move.None);
 	array_push(global.griffin.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 	
 	global.sphinx = get_creature_template();
-	global.sphinx.speed = 110;
+	global.sphinx.speed = 250;
 	array_push(global.sphinx.moves, Move.None, Move.None, Move.None, Move.None);
 	array_push(global.sphinx.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 	
 	global.ent = get_creature_template();
-	global.ent.speed = 90;
+	global.ent.speed = 300;
 	array_push(global.ent.moves, Move.None, Move.None, Move.None, Move.None);
 	array_push(global.ent.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 	
 	global.gorgon = get_creature_template();
-	global.gorgon.speed = 70;
+	global.gorgon.speed = 350;
 	array_push(global.gorgon.moves, Move.None, Move.None, Move.None, Move.None);
 	array_push(global.gorgon.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 	
 	global.elf = get_creature_template();
-	global.elf.speed = 50;
+	global.elf.speed = 400;
 	array_push(global.elf.moves, Move.None, Move.None, Move.None, Move.None);
 	array_push(global.elf.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 	
 	global.dwarf = get_creature_template();
-	global.dwarf.speed = 30;
+	global.dwarf.speed = 450;
 	array_push(global.dwarf.moves, Move.None, Move.None, Move.None, Move.None);
 	array_push(global.dwarf.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 	
 	global.vampire = get_creature_template();
-	global.vampire.speed = 10;
+	global.vampire.speed = 500;
 	array_push(global.vampire.moves, Move.None, Move.None, Move.None, Move.None);
 	array_push(global.vampire.passiveAbilities, PassiveAbility.None, PassiveAbility.None, PassiveAbility.None);
 }

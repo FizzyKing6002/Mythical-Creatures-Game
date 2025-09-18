@@ -161,3 +161,9 @@ function get_combat_move_from_id (_moveID)
 	show_debug_message("Combat move not found...");
 	return undefined;
 }
+
+/// @self obj_local_host
+function is_creature_turn ()
+{
+	return combatData.creatureTurn != CombatCreature.None;
+}

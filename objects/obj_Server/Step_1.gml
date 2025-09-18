@@ -36,16 +36,22 @@ while (steam_net_packet_receive())
 
 
 
-if room != rm_combat or combatData.creatureTurn != CombatCreature.None then exit;
+if room != rm_combat || is_creature_turn() then exit;
 
-var _creatureTurnData = get_creature_turn_data();
+var _currentTime = current_time;
+var _nextCombatTime = combatData.combatTime + _currentTime - combatData.actualTime;
+var _nextStepTime = round_to_next_combat_step_time(combatData.combatTime);
+combatData.actualTime = _currentTime;
 
-if array_length(_creatureTurnData) == 0
+perform_events(_nextStepTime - global.combatStepTime);
+
+for (var _time = _nextStepTime; _time < _nextCombatTime; _time += global.combatStepTime)
 {
-	combatData.timeDiff = current_time - combatData.actualTime;
-	combatData.combatTime += combatData.timeDiff;
-	combatData.actualTime = current_time;
+	add_creature_turn_events(_time);
+	add_move_events(_time);
+	add_creature_events(_time);
 	
-	evaluate_moves();
-	exit;
+	if perform_events(_time) then break;
+	
+	combatData.combatTime = _nextCombatTime;
 }

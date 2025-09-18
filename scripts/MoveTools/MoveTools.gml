@@ -1,8 +1,8 @@
 /// @self obj_local_host
-function evaluate_moves ()
+function evaluate_moves (_time)
 {
 	var _moves = combatData.moves;
-	var _timeDiff = combatData.timeDiff;
+	var _timeDiff = global.combatStepTime;
 	
 	for (var _i = 0; _i < array_length(_moves); _i++)
 	{

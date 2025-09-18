@@ -13,7 +13,6 @@ combatData =
 	map : Map.Default,
 	combatTime : 0,
 	actualTime : 0,
-	timeDiff : 0,
 	creatureTurn : CombatCreature.None,
 	
 	blueID : 0,
@@ -33,6 +32,7 @@ combatData =
 	
 	nextMoveID : 0,
 	moves : [],
+	
 	events : [],
 	listeners : [],
 }

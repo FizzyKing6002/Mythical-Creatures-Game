@@ -8,25 +8,6 @@ function handle_combat_start ()
 }
 
 /// @self obj_local_host
-function get_creature_turn_data ()
-{
-	var _creatureTurnData = [];
-	
-	for (var _combatCreature = 0; _combatCreature < CombatCreature.None; _combatCreature++)
-	{
-		var _creature = get_combat_creature_from_identifier(_combatCreature);
-		var _creatureMoveTime = _creature.moveTime;
-		var _creatureSpeed = get_creature_data(_creature.identifier).speed;
-		
-		if _creatureMoveTime > combatData.combatTime then continue;
-		
-		array_push(_creatureTurnData, [_combatCreature, _creatureMoveTime, _creatureSpeed]);
-	}
-	
-	return _creatureTurnData;
-}
-
-/// @self obj_local_host
 function fill_spawn_coords_by_map (_map)
 {
 	switch _map
@@ -60,7 +41,7 @@ function fill_creatures_init_values ()
 		var _creatureData = get_creature_data(_creatureVar.identifier);
 		
 		_creatureVar.hp = _creatureData.hp;
-		_creatureVar.moveTime = global.combatCreatureInitialDelay - _creatureData.speed;
+		_creatureVar.moveTime = global.combatCreatureInitialDelay + _creatureData.speed;
 		_creatureVar.move1.identifier = _creatureData.moves[0];
 		_creatureVar.move2.identifier = _creatureData.moves[1];
 		_creatureVar.move3.identifier = _creatureData.moves[2];
@@ -102,7 +83,7 @@ function spawn_creatures ()
 }
 
 /// @self obj_local_host
-function create_combat_move (_deployData, _moveIdentifier, _creatorCreature, _creatorMoveID)
+function create_combat_move (_deployData, _moveIdentifier, _creatorCreature, _creatorMoveID, _time)
 {
 	var _combatMove = get_combat_move_var();
 	var _data = get_move_data(_moveIdentifier);
@@ -112,6 +93,7 @@ function create_combat_move (_deployData, _moveIdentifier, _creatorCreature, _cr
 	combatData.nextMoveID++;
 	_combatMove.creatorCreature = _creatorCreature;
 	_combatMove.creatorMoveID = _creatorMoveID;
+	_combatMove.creationTime = _time;
 	_combatMove.X = _deployData.X;
 	_combatMove.Y = _deployData.Y;
 	_combatMove.direction = _deployData.direction;
@@ -128,4 +110,48 @@ function create_combat_move (_deployData, _moveIdentifier, _creatorCreature, _cr
 	_combatMove.inst = _moveInst;
 	
 	array_push(combatData.moves, _combatMove);
+}
+
+function round_to_next_combat_step_time (_time)
+{
+	var _stepTime = 1000 / global.combatStepsPerSecond;
+	var _totalSteps = _time div _stepTime;
+	return (_totalSteps+1) * _stepTime;
+}
+
+/// @self obj_local_host
+function add_creature_turn_events (_time)
+{
+	for (var _combatCreature = 0; _combatCreature < CombatCreature.None; _combatCreature++)
+	{
+		var _creature = get_combat_creature_from_identifier(_combatCreature);
+		var _data = get_creature_data(_creature.identifier);
+		
+		add_event_creature_turn(_creature, _data, _time);
+	}
+}
+
+/// @self obj_local_host
+function add_move_events (_time)
+{
+	var _moves = combatData.moves;
+	
+	for (var _i = 0; _i < array_length(_moves); _i++)
+	{
+		var _move = _moves[_i];
+		var _data = get_move_data(_move.identifier);
+		
+		add_event_destroy_move(_move, _data, _time);
+		add_event_move_move(_move, _data, _time);
+	}
+}
+
+/// @self obj_local_host
+function add_creature_events (_time) { }
+
+/// @self obj_local_host
+/// @desc Returns true if a creature turn was started in the function
+function perform_events (_time)
+{
+	return false;
 }

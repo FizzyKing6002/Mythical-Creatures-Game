@@ -30,7 +30,15 @@ enum LocalHost
 	None,
 }
 
-enum PartySelectStage
+enum Team // max length 256
+{
+	Blue,
+	Red,
+	
+	None,
+}
+
+enum PartySelectStage // max length 256
 {
 	Blue1,
 	Red1,
@@ -45,21 +53,6 @@ enum PartySelectStage
 	None,
 }
 
-enum Map
-{
-	Default,
-	
-	None,
-}
-
-enum Team // max length 256
-{
-	Blue,
-	Red,
-	
-	None,
-}
-
 enum CombatCreature // max length 256
 {
 	Blue1,
@@ -70,6 +63,13 @@ enum CombatCreature // max length 256
 	Red2,
 	Red3,
 	Red4,
+	
+	None,
+}
+
+enum Map // max length 256
+{
+	Default,
 	
 	None,
 }
@@ -91,6 +91,16 @@ enum Creature // max length 256
 enum Move // max length 256
 {
 	Fireball,
+	
+	None,
+}
+
+enum Event // max length 256
+{
+	CreatureTurn,
+	CreateMove,
+	DestroyMove,
+	MoveMove,
 	
 	None,
 }
