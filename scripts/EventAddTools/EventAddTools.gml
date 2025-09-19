@@ -15,7 +15,7 @@ function array_push_event_in_order (_event)
 }
 
 /// @self obj_local_host
-function event_add_creature_turn (_creature, _data, _time)
+function event_add_creature_turn (_creature, _data, _time, _combatCreature)
 {
 	var _creatureMoveTime = _creature.moveTime;
 	

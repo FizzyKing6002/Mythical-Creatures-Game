@@ -127,7 +127,7 @@ function add_creature_events (_time)
 		var _creature = get_combat_creature_from_identifier(_combatCreature);
 		var _data = get_creature_data(_creature.identifier);
 		
-		event_add_creature_turn(_creature, _data, _time);
+		event_add_creature_turn(_creature, _data, _time, _combatCreature);
 	}
 }
 
