@@ -2,9 +2,10 @@
 function array_push_event_in_order (_event)
 {
 	var _events = combatData.events;
+	var _len = array_length(_events);
 	var _index = binary_search_by_field_greater(_events, "time", _event.time);
 	
-	while _event.time == _events[_index].time
+	while _index != _len && _event.time == _events[_index].time
 	{
 		if _event.priority >= _events[_index].priority then break;
 		
