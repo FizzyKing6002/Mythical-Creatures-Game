@@ -103,4 +103,5 @@ function get_event_var ()
 		priority : 0,
 		details : undefined,
 	}
+	return _event;
 }
