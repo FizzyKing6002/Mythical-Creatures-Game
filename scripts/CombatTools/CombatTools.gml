@@ -83,7 +83,7 @@ function spawn_creatures ()
 }
 
 /// @self obj_local_host
-function create_combat_move (_deployData, _moveIdentifier, _creatorCreature, _creatorMoveID, _time)
+function create_combat_move (_moveIdentifier, _deployData, _creatorCreature, _creatorMoveID, _time)
 {
 	var _combatMove = get_combat_move_var();
 	var _data = get_move_data(_moveIdentifier);
@@ -120,14 +120,14 @@ function round_to_next_combat_step_time (_time)
 }
 
 /// @self obj_local_host
-function add_creature_turn_events (_time)
+function add_creature_events (_time)
 {
 	for (var _combatCreature = 0; _combatCreature < CombatCreature.None; _combatCreature++)
 	{
 		var _creature = get_combat_creature_from_identifier(_combatCreature);
 		var _data = get_creature_data(_creature.identifier);
 		
-		add_event_creature_turn(_creature, _data, _time);
+		event_add_creature_turn(_creature, _data, _time);
 	}
 }
 
@@ -141,17 +141,41 @@ function add_move_events (_time)
 		var _move = _moves[_i];
 		var _data = get_move_data(_move.identifier);
 		
-		add_event_destroy_move(_move, _data, _time);
-		add_event_move_move(_move, _data, _time);
+		event_add_destroy_move(_move, _data, _time);
+		event_add_move_move(_move, _data, _time);
 	}
 }
 
 /// @self obj_local_host
-function add_creature_events (_time) { }
+/// @desc Returns true if a creature turn was started in the function
+function evaluate_events (_time)
+{
+	var _events = combatData.events;
+	var _combatTurnStarted = false;
+	
+	while true
+	{
+		if array_length(_events) == 0 then break;
+		
+		var _event = _events[0];
+		array_delete(_events, 0, 1);
+		
+		if _event.time > _time then break;
+		if perform_event(_event) then break;
+	}
+}
 
 /// @self obj_local_host
-/// @desc Returns true if a creature turn was started in the function
-function perform_events (_time)
+/// @desc Returns true if the event performed was a creature turn event
+function perform_event (_event)
 {
+	switch _event.identifier
+	{
+		case Event.CreatureTurn: event_perform_creature_turn(_event.details); return true;
+		case Event.CreateMove: event_perform_create_move(_event.details, _event.time); break;
+		case Event.DestroyMove: event_perform_destroy_move(_event.details); break;
+		case Event.MoveMove: event_perform_move_move(_event.details); break;
+		default: show_debug_message("Event not accounted for..."); break;
+	}
 	return false;
 }

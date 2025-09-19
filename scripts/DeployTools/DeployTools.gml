@@ -1,3 +1,4 @@
+/// @self obj_local_host
 function get_deploy_data_by_method (_deployMethod, _clicks, _creatorCreature, _creatorMoveID)
 {
 	var _deployData =
@@ -9,6 +10,7 @@ function get_deploy_data_by_method (_deployMethod, _clicks, _creatorCreature, _c
 	
 	var _creature = undefined;
 	var _move = undefined;
+	
 	switch _deployMethod
 	{
 		case DeployMethod.Centre:

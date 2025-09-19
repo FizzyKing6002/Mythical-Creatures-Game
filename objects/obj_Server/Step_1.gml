@@ -43,15 +43,14 @@ var _nextCombatTime = combatData.combatTime + _currentTime - combatData.actualTi
 var _nextStepTime = round_to_next_combat_step_time(combatData.combatTime);
 combatData.actualTime = _currentTime;
 
-perform_events(_nextStepTime - global.combatStepTime);
+evaluate_events(_nextStepTime - global.combatStepTime);
 
 for (var _time = _nextStepTime; _time < _nextCombatTime; _time += global.combatStepTime)
 {
-	add_creature_turn_events(_time);
-	add_move_events(_time);
 	add_creature_events(_time);
+	add_move_events(_time);
 	
-	if perform_events(_time) then break;
+	if evaluate_events(_time) then break;
 	
 	combatData.combatTime = _nextCombatTime;
 }

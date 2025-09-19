@@ -150,16 +150,26 @@ function get_combat_creature_from_identifier (_combatCreature)
 }
 
 /// @self obj_local_host
+function get_combat_move_index_from_id (_moveID)
+{
+	var _moves = combatData.moves;
+	var _index = binary_search_by_field_greater(_moves, "ID", _moveID);
+	
+	if _index == array_length(_moves) then return undefined;
+	if _moves[_index].ID != _moveID then return undefined;
+	
+	return _index;
+}
+
+/// @self obj_local_host
 function get_combat_move_from_id (_moveID)
 {
 	var _moves = combatData.moves;
+	var _index = get_combat_move_index_from_id(_moveID);
 	
-	for (var _i = 0; _i < array_length(_moves); _i++)
-	{
-		if _moves[_i].ID == _moveID then return _moves[_i];
-	}
-	show_debug_message("Combat move not found...");
-	return undefined;
+	if _index == undefined then return undefined;
+	
+	return _moves[_index];
 }
 
 /// @self obj_local_host

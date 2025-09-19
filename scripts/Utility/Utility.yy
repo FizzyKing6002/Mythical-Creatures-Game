@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"AddEventTools",
+  "%Name":"Utility",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"AddEventTools",
+  "name":"Utility",
   "parent":{
     "name":"Tools",
     "path":"folders/Scripts/Tools.yy",

@@ -6,3 +6,5 @@ global.eventPriorityDestroyMove = 2;
 global.eventPriorityCreateMove = 1;
 global.eventPriorityMoveMove = 0;
 global.eventPriorityCreatureTurn = 0; // creature speed is subtracted from this
+
+global.defaultMoveSize = 16;

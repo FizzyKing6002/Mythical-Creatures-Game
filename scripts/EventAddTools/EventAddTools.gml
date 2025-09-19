@@ -1,5 +1,21 @@
 /// @self obj_local_host
-function add_event_creature_turn (_creature, _data, _time)
+function array_push_event_in_order (_event)
+{
+	var _events = combatData.events;
+	var _index = binary_search_by_field_greater(_events, "time", _event.time);
+	
+	while _event.time == _events[_index].time
+	{
+		if _event.priority >= _events[_index].priority then break;
+		
+		_index++;
+	}
+	
+	array_insert(_events, _index, _event);
+}
+
+/// @self obj_local_host
+function event_add_creature_turn (_creature, _data, _time)
 {
 	var _creatureMoveTime = _creature.moveTime;
 	
@@ -12,11 +28,30 @@ function add_event_creature_turn (_creature, _data, _time)
 	_event.priority = global.eventPriorityCreatureTurn - _data.speed;
 	_event.details = { target : _combatCreature };
 	
-	array_push(combatData.events, _event);
+	array_push_event_in_order(_event);
 }
 
 /// @self obj_local_host
-function add_event_destroy_move (_move, _data, _time)
+function event_add_create_move (_identifier, _creatorCreature, _creatorMoveID, _time)
+{
+	var _deployData = get_deploy_data_by_method(DeployMethod.CentreDirect, [{ X:320, Y:180 }], _creatorCreature, _creatorMoveID);
+	
+	var _event = get_event_var();
+	
+	_event.identifier = Event.CreateMove;
+	_event.time = _time;
+	_event.priority = global.eventPriorityCreateMove;
+	_event.details =
+	{
+		target : _identifier,
+		deployData : _deployData,
+		creatorCreature : _creatorCreature,
+		creatorMoveID : _creatorMoveID,
+	};
+}
+
+/// @self obj_local_host
+function event_add_destroy_move (_move, _data, _time)
 {
 	var _expiryTime = _data.duration + _move.creationTime;
 	
@@ -29,11 +64,11 @@ function add_event_destroy_move (_move, _data, _time)
 	_event.priority = global.eventPriorityDestroyMove;
 	_event.details = { target : _move.ID };
 	
-	array_push(combatData.events, _event);
+	array_push_event_in_order(_event);
 }
 
 /// @self obj_local_host
-function add_event_move_move (_move, _data, _time)
+function event_add_move_move (_move, _data, _time)
 {
 	var _speed = _data.speed;
 	var _direction = _move.direction;
@@ -56,5 +91,5 @@ function add_event_move_move (_move, _data, _time)
 		Y : _y,
 	};
 	
-	array_push(combatData.events, _event);
+	array_push_event_in_order(_event);
 }
