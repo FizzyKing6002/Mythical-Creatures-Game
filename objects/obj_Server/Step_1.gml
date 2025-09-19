@@ -45,12 +45,13 @@ combatData.actualTime = _currentTime;
 
 evaluate_events(_nextStepTime - global.combatStepTime);
 
-for (var _time = _nextStepTime; _time < _nextCombatTime; _time += global.combatStepTime)
+for (var _time = _nextStepTime; _time <= _nextCombatTime; _time += global.combatStepTime)
 {
+	show_debug_message("Event loop at: " + string(_time))
 	add_creature_events(_time);
 	add_move_events(_time);
 	
-	if evaluate_events(_time) then break;
-	
-	combatData.combatTime = _nextCombatTime;
+	if evaluate_events(_time) then exit;
 }
+
+combatData.combatTime = _nextCombatTime;
