@@ -25,6 +25,7 @@ function init_moves ()
 			},
 			
 			otherStats : [],
+			recordedStats : [],
 		};
 		
 /*		var _moveTemplate2 =

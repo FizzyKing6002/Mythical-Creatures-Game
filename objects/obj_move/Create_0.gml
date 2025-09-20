@@ -1,4 +1,5 @@
 move = undefined;
+moveData = undefined;
 
 localHostObj = noone;
 if instance_exists(obj_server) then localHostObj = global.server;

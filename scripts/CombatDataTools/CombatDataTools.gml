@@ -120,14 +120,14 @@ function change_current_creature (_creature)
 {
 	switch combatData.partySelectStage
 	{
-		case 0: combatData.blueCreature1.identifier = _creature; break;
-		case 1: combatData.redCreature1.identifier = _creature; break;
-		case 2: combatData.redCreature2.identifier = _creature; break;
-		case 3: combatData.blueCreature2.identifier = _creature; break;
-		case 4: combatData.blueCreature3.identifier = _creature; break;
-		case 5: combatData.redCreature3.identifier = _creature; break;
-		case 6: combatData.blueCreature4.identifier = _creature; break;
-		case 7: combatData.redCreature4.identifier = _creature; break;
+		case PartySelectStage.Blue1: combatData.blueCreature1.identifier = _creature; break;
+		case PartySelectStage.Red1: combatData.redCreature1.identifier = _creature; break;
+		case PartySelectStage.Red2: combatData.redCreature2.identifier = _creature; break;
+		case PartySelectStage.Blue2: combatData.blueCreature2.identifier = _creature; break;
+		case PartySelectStage.Blue3: combatData.blueCreature3.identifier = _creature; break;
+		case PartySelectStage.Red3: combatData.redCreature3.identifier = _creature; break;
+		case PartySelectStage.Blue4: combatData.blueCreature4.identifier = _creature; break;
+		case PartySelectStage.Red4: combatData.redCreature4.identifier = _creature; break;
 		default: show_debug_message("Ninth party select stage not accounted for..."); break;
 	}
 }

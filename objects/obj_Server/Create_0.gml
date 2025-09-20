@@ -13,3 +13,5 @@ localRequests =
 	partySelectCreature : { request : false, creature : Creature.None, },
 	combatStart : { request : false, },
 }
+
+debugMode = false;

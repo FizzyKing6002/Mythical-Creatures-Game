@@ -161,8 +161,10 @@ function evaluate_events (_time)
 		array_delete(_events, 0, 1);
 		
 		if _event.time > _time then break;
-		if perform_event(_event) then break;
+		
+		if perform_event(_event) then return _event.time;
 	}
+	return undefined;
 }
 
 /// @self obj_local_host

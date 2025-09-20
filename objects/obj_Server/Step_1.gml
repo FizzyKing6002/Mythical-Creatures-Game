@@ -1,4 +1,4 @@
-while (steam_net_packet_receive())
+while !debugMode && (steam_net_packet_receive())
 {
 	var _senderID = steam_net_packet_get_sender_id();
 	
@@ -50,7 +50,8 @@ for (var _time = _nextStepTime; _time <= _nextCombatTime; _time += global.combat
 	add_creature_events(_time);
 	add_move_events(_time);
 	
-	if evaluate_events(_time) then exit;
+	var _creatureTurnTime = evaluate_events(_time);
+	if _creatureTurnTime != undefined then { combatData.combatTime = _creatureTurnTime; exit; }
 }
 
 combatData.combatTime = _nextCombatTime;

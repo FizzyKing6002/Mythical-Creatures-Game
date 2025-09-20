@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"MoveTools",
+  "%Name":"CombatCalculations",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"MoveTools",
+  "name":"CombatCalculations",
   "parent":{
     "name":"Tools",
     "path":"folders/Scripts/Tools.yy",

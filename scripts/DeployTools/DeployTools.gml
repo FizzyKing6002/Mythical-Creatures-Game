@@ -62,5 +62,5 @@ function get_deploy_data_by_method (_deployMethod, _clicks, _creatorCreature, _c
 
 function get_direction_between_points (_point1, _point2)
 {
-	return arctan2(_point2.Y - _point1.Y, _point2.X - _point1.X);
+	return -radtodeg(arctan2(_point2.Y - _point1.Y, _point2.X - _point1.X));
 }

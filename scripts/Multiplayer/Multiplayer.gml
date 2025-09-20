@@ -86,10 +86,20 @@ function get_combat_move_var ()
 		creatorCreature : CombatCreature.None,
 		creatorMoveID : 0,
 		creationTime : 0,
-		X : 0,
-		Y : 0,
-		direction : 0,
 		inst : noone,
+		
+		initStats :
+		{
+			X : 0,
+			Y : 0,
+			direction : 0,
+		},
+		currStats :
+		{
+			X : 0,
+			Y : 0,
+			direction : 0,
+		},
 	};
 	return _move;
 }

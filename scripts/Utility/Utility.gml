@@ -8,7 +8,7 @@ function binary_search_by_field_greater (_array, _field, _val)
 	{
 		var _index = (_minIndex + _maxIndex) div 2;
 		
-		var _foundVal = _array[_index][?_field];
+		var _foundVal = variable_struct_get(_array[_index], _field);
 		
 		if _foundVal < _val then _minIndex = _index;
 		else _maxIndex = _index;
